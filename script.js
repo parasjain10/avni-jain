@@ -1,162 +1,183 @@
-/* ============================================================
-   AVNI JAIN — PORTFOLIO · script.js
-   ============================================================ */
+/* =============================================
+   NAVIGATION — shrink on scroll + hamburger
+============================================= */
+const nav       = document.getElementById('nav');
+const hamburger = document.getElementById('hamburger');
+const navLinks  = document.querySelector('.nav__links');
 
-(function () {
-  'use strict';
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
 
-  /* --------- NAV: scroll shrink + mobile toggle --------- */
-  const nav    = document.getElementById('nav');
-  const burger = document.getElementById('burger');
-  const links  = document.querySelector('.nav__links');
+hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => navLinks.classList.remove('open'));
+});
 
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  }, { passive: true });
+/* =============================================
+   HERO — entrance animation on load
+============================================= */
+window.addEventListener('load', () => {
+  const heroText = document.querySelector('.hero__text');
+  if (!heroText) return;
+  heroText.style.cssText = 'opacity:0;transform:translateY(18px);transition:opacity .85s ease,transform .85s ease';
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    heroText.style.opacity = '1';
+    heroText.style.transform = 'translateY(0)';
+  }));
+});
 
-  if (burger && links) {
-    burger.addEventListener('click', () => {
-      links.classList.toggle('open');
-      const isOpen = links.classList.contains('open');
-      burger.setAttribute('aria-expanded', isOpen);
-      const spans = burger.querySelectorAll('span');
-      if (isOpen) {
-        spans[0].style.transform = 'translateY(7px) rotate(45deg)';
-        spans[1].style.opacity   = '0';
-        spans[2].style.transform = 'translateY(-7px) rotate(-45deg)';
-      } else {
-        spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
-      }
-    });
-
-    links.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        links.classList.remove('open');
-        burger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
-      });
-    });
+/* =============================================
+   PROFILE PHOTO FALLBACK
+   Drop your photo as profile.jpg in this folder.
+   "AJ" initials show automatically if the image is missing.
+============================================= */
+function setupPhotoFallback(imgEl, fallbackEl) {
+  if (!imgEl || !fallbackEl) return;
+  const showFallback = () => {
+    imgEl.style.display = 'none';
+    fallbackEl.style.display = 'flex';
+  };
+  const showPhoto = () => {
+    fallbackEl.style.display = 'none';
+    imgEl.style.display = 'block';
+  };
+  imgEl.addEventListener('error', showFallback);
+  imgEl.addEventListener('load',  showPhoto);
+  if (imgEl.complete) {
+    imgEl.naturalHeight ? showPhoto() : showFallback();
   }
+}
 
-  /* --------- HERO: headline underline animation --------- */
-  const accent = document.querySelector('.hero__headline-accent');
-  if (accent) {
-    // trigger after a short delay so user sees it animate in
-    setTimeout(() => accent.classList.add('line-on'), 700);
-  }
+setupPhotoFallback(
+  document.getElementById('heroPhoto'),
+  document.getElementById('heroInitials')
+);
+setupPhotoFallback(
+  document.querySelector('.about-photo'),
+  document.querySelector('.about-photo-fb')
+);
 
-  /* --------- HERO: photo fallback --------- */
-  function setupPhotoFallback(imgId, fbId) {
-    const img = document.getElementById(imgId);
-    const fb  = document.getElementById(fbId);
-    if (!img || !fb) return;
-    const show = () => { img.style.display = 'none'; fb.style.display = 'flex'; };
-    img.addEventListener('error', show);
-    if (img.complete && img.naturalWidth === 0) show();
-  }
-  setupPhotoFallback('heroPhoto', 'heroInit');
-
-  // About section photo fallback (no explicit ids, use class)
-  document.querySelectorAll('.about__photo').forEach(img => {
-    img.addEventListener('error', () => {
-      const fb = img.nextElementSibling;
-      if (fb && fb.classList.contains('about__photo-fb')) {
-        img.style.display = 'none';
-        fb.style.display = 'flex';
-      }
-    });
-    if (img.complete && img.naturalWidth === 0) {
-      const fb = img.nextElementSibling;
-      if (fb && fb.classList.contains('about__photo-fb')) {
-        img.style.display = 'none';
-        fb.style.display = 'flex';
-      }
+/* =============================================
+   LOGO WALL — apply brand color CSS var to glow
+   (CSS custom property --gc needs hex, not var())
+============================================= */
+const colorMap = {
+  '--gc:#2f8d46': '47,141,70',
+  '--gc:#4d8eff': '77,142,255',
+  '--gc:#a78bfa': '167,139,250',
+  '--gc:#fbbf24': '251,191,36',
+};
+document.querySelectorAll('.logo-wall__glow').forEach(glow => {
+  const style = glow.getAttribute('style') || '';
+  for (const [key, rgb] of Object.entries(colorMap)) {
+    if (style.includes(key)) {
+      glow.style.background = `radial-gradient(ellipse 60% 60% at 50% 100%, rgba(${rgb},0.12) 0%, transparent 70%)`;
+      break;
     }
+  }
+});
+
+/* =============================================
+   FADE-UP SCROLL ANIMATIONS
+============================================= */
+const fadeObs = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const siblings = [...entry.target.parentElement.querySelectorAll('.fade-up:not(.visible)')];
+      const delay = siblings.indexOf(entry.target) * 90;
+      setTimeout(() => entry.target.classList.add('visible'), delay);
+      fadeObs.unobserve(entry.target);
+    });
+  },
+  { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+);
+document.querySelectorAll('.fade-up').forEach(el => fadeObs.observe(el));
+
+/* =============================================
+   ANIMATED NUMBER COUNTERS
+============================================= */
+function easeOutExpo(t) {
+  return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+}
+
+function animateCounter(el) {
+  const target   = parseFloat(el.dataset.target);
+  const suffix   = el.dataset.suffix   || '';
+  const decimals = parseInt(el.dataset.decimals || '0', 10);
+  const duration = 2000;
+  const startTime = performance.now();
+
+  function tick(now) {
+    const progress = Math.min((now - startTime) / duration, 1);
+    const value = easeOutExpo(progress) * target;
+    el.textContent = value.toFixed(decimals) + suffix;
+    if (progress < 1) requestAnimationFrame(tick);
+    else el.textContent = target.toFixed(decimals) + suffix;
+  }
+  requestAnimationFrame(tick);
+}
+
+const counterObs = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        counterObs.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.5 }
+);
+document.querySelectorAll('.counter').forEach(el => counterObs.observe(el));
+
+/* =============================================
+   LOGO WALL — stagger reveal animation
+============================================= */
+const logoObs = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const items = [...document.querySelectorAll('.logo-wall__item')];
+        items.forEach((item, i) => {
+          setTimeout(() => {
+            item.style.transition = 'opacity 0.5s ease, transform 0.5s ease, filter 0.35s ease, background 0.35s ease';
+            item.style.opacity = '0.55';
+            item.style.transform = 'translateY(0)';
+          }, i * 80);
+        });
+        logoObs.disconnect();
+      }
+    });
+  },
+  { threshold: 0.3 }
+);
+const logoWall = document.querySelector('.logo-wall__grid');
+if (logoWall) {
+  // Initial state
+  document.querySelectorAll('.logo-wall__item').forEach(item => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateY(12px)';
   });
+  logoObs.observe(logoWall);
+}
 
-  /* --------- HERO: parallax background on scroll --------- */
-  const heroBg = document.querySelector('.hero__bg');
-  if (heroBg) {
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY;
-      if (y < window.innerHeight * 1.2) {
-        heroBg.style.transform = `translateY(${y * 0.25}px)`;
-      }
-    }, { passive: true });
-  }
-
-  /* --------- SCROLL REVEAL: fade-up --------- */
-  const revealObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        revealObs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('.fade-up').forEach(el => revealObs.observe(el));
-
-  /* --------- ANIMATED COUNTERS --------- */
-  function animateCounter(el) {
-    const target   = parseFloat(el.dataset.target);
-    const suffix   = el.dataset.suffix  || '';
-    const decimals = parseInt(el.dataset.decimals || '0', 10);
-    const duration = 1800;
-    const start    = performance.now();
-
-    function step(now) {
-      const progress = Math.min((now - start) / duration, 1);
-      // ease out cubic
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const val   = eased * target;
-      el.textContent = decimals > 0 ? val.toFixed(decimals) + suffix : Math.round(val) + suffix;
-      if (progress < 1) requestAnimationFrame(step);
-      else el.textContent = (decimals > 0 ? target.toFixed(decimals) : target) + suffix;
-    }
-    requestAnimationFrame(step);
-  }
-
-  const counterObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        animateCounter(e.target);
-        counterObs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.4 });
-
-  document.querySelectorAll('.counter').forEach(el => counterObs.observe(el));
-
-  /* --------- ACTIVE NAV LINK on scroll --------- */
-  const sections = document.querySelectorAll('section[id], footer[id]');
-  const navLinks = document.querySelectorAll('.nav__links a');
-
-  const activeObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const id = e.target.id;
-        navLinks.forEach(a => {
-          a.style.color = '';
-          if (a.getAttribute('href') === `#${id}`) {
-            a.style.color = 'var(--text)';
-          }
+/* =============================================
+   ACTIVE NAV LINK
+============================================= */
+const sections = document.querySelectorAll('section[id]');
+const activeObs = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.querySelectorAll('a').forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === `#${id}`);
         });
       }
     });
-  }, { rootMargin: '-50% 0px -50% 0px' });
-
-  sections.forEach(s => activeObs.observe(s));
-
-  /* --------- SMOOTH SCROLL for nav links --------- */
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (!target) return;
-      e.preventDefault();
-      const navH   = nav ? nav.offsetHeight : 68;
-      const top    = target.getBoundingClientRect().top + window.scrollY - navH;
-      window.scrollTo({ top, behavior: 'smooth' });
-    });
-  });
-
-})();
+  },
+  { threshold: 0.4 }
+);
+sections.forEach(s => activeObs.observe(s));

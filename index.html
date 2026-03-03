@@ -3,451 +3,534 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Avni Jain — Senior Brand & Growth Strategist</title>
-  <meta name="description" content="Senior Brand & Growth Strategist with 3+ years driving 3M+ impressions, 466K+ Instagram growth, outdoor branding, and measurable campaign impact." />
+  <title>Avni Jain — Senior Marketing & Brand Strategist</title>
+  <meta name="description" content="Senior Marketing & Brand Strategist with 3+ years driving 3M+ impressions, 466K+ Instagram growth, and measurable brand impact." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- ===== NAV ===== -->
+  <!-- Noise texture overlay (decorative) -->
+  <svg class="noise-svg" aria-hidden="true">
+    <filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+    <rect width="100%" height="100%" filter="url(#noise)" opacity="0.035"/>
+  </svg>
+
+  <!-- ===== NAVIGATION ===== -->
   <nav class="nav" id="nav">
-    <a href="#home" class="nav__logo">AJ</a>
+    <a href="#hero" class="nav__logo">AJ</a>
     <ul class="nav__links">
-      <li><a href="#expertise">Expertise</a></li>
       <li><a href="#work">Work</a></li>
+      <li><a href="#metrics">Impact</a></li>
+      <li><a href="#expertise">Expertise</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#contact" class="nav__cta">Let's Talk</a></li>
+      <li><a href="#contact" class="nav__cta-link">Let's Talk</a></li>
     </ul>
-    <button class="nav__burger" id="burger" aria-label="Toggle menu">
+    <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
 
   <!-- ===== HERO ===== -->
-  <section class="hero" id="home">
-    <div class="hero__bg" aria-hidden="true"></div>
-    <div class="hero__grid-lines" aria-hidden="true">
-      <svg width="100%" height="100%" preserveAspectRatio="none">
-        <defs>
-          <pattern id="gp" width="72" height="72" patternUnits="userSpaceOnUse">
-            <path d="M 72 0 L 0 0 0 72" fill="none" stroke="rgba(123,97,255,0.05)" stroke-width="1"/>
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#gp)"/>
+  <section class="hero" id="hero">
+    <!-- Decorative background grid -->
+    <svg class="hero__grid" aria-hidden="true" preserveAspectRatio="none">
+      <defs>
+        <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+          <path d="M 48 0 L 0 0 0 48" fill="none" stroke="rgba(200,169,110,0.06)" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)"/>
+    </svg>
+
+    <div class="hero__container container">
+      <div class="hero__text">
+        <p class="hero__kicker">Senior Marketing &amp; Brand Strategist</p>
+        <h1 class="hero__name">Avni<br>Jain</h1>
+        <p class="hero__prop">I build brands that scale, craft campaigns that convert, and create communities that last.</p>
+        <div class="hero__stats-row">
+          <div class="hero__stat">
+            <span class="hero__stat-val">3M+</span>
+            <span class="hero__stat-key">Impressions</span>
+          </div>
+          <div class="hero__stat-sep"></div>
+          <div class="hero__stat">
+            <span class="hero__stat-val">3+</span>
+            <span class="hero__stat-key">Years</span>
+          </div>
+          <div class="hero__stat-sep"></div>
+          <div class="hero__stat">
+            <span class="hero__stat-val">4</span>
+            <span class="hero__stat-key">Brands</span>
+          </div>
+        </div>
+        <div class="hero__btns">
+          <a href="#work" class="btn btn--gold">View Case Studies</a>
+          <a href="#contact" class="btn btn--outline">Let's Connect</a>
+        </div>
+      </div>
+
+      <div class="hero__media">
+        <div class="hero__photo-frame">
+          <img src="profile.jpg" alt="Avni Jain" class="hero__photo" id="heroPhoto" />
+          <div class="hero__initials" id="heroInitials">AJ</div>
+          <div class="hero__ring"></div>
+          <div class="hero__dot hero__dot--a"></div>
+          <div class="hero__dot hero__dot--b"></div>
+        </div>
+
+        <!-- Floating achievement badges -->
+        <div class="hero__badge hero__badge--top">
+          <span class="hero__badge-val">466K+</span>
+          <span class="hero__badge-key">Instagram Growth</span>
+        </div>
+        <div class="hero__badge hero__badge--btm">
+          <span class="hero__badge-val">10×</span>
+          <span class="hero__badge-key">CTR Multiplier</span>
+        </div>
+
+        <!-- Mini analytics dashboard card -->
+        <div class="hero__dash">
+          <div class="hero__dash-head">
+            <span class="hero__dash-title">Campaign Performance</span>
+            <span class="hero__dash-live"><span class="hero__dash-dot"></span>Live</span>
+          </div>
+          <svg class="hero__dash-chart" viewBox="0 0 160 44" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="cg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#c8a96e" stop-opacity=".5"/>
+                <stop offset="100%" stop-color="#c8a96e" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <polygon points="0,40 0,34 20,30 50,32 80,18 110,22 140,10 160,6 160,40" fill="url(#cg)"/>
+            <polyline points="0,34 20,30 50,32 80,18 110,22 140,10 160,6" stroke="#c8a96e" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="hero__dash-kpis">
+            <div class="hero__dash-kpi">
+              <span class="hero__dash-kpi-val">+247%</span>
+              <span class="hero__dash-kpi-key">CTR Growth</span>
+            </div>
+            <div class="hero__dash-kpi">
+              <span class="hero__dash-kpi-val">3M+</span>
+              <span class="hero__dash-kpi-key">Impressions</span>
+            </div>
+            <div class="hero__dash-kpi">
+              <span class="hero__dash-kpi-val">↑ 40%</span>
+              <span class="hero__dash-kpi-key">Brand Recall</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#brands" class="hero__scroll">
+      <span>Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </a>
+  </section>
+
+  <!-- ===== LOGO WALL ===== -->
+  <section class="logo-wall" id="brands">
+    <div class="container">
+      <p class="logo-wall__label">Brands I've helped grow</p>
+      <div class="logo-wall__grid">
+
+        <div class="logo-wall__item logo-wall__item--gfg">
+          <div class="logo-wall__mark">
+            <!-- GFG monogram -->
+            <svg viewBox="0 0 48 24" fill="none">
+              <text x="0" y="20" font-family="Space Grotesk, sans-serif" font-size="18" font-weight="700" fill="#2f8d46">GFG</text>
+            </svg>
+          </div>
+          <span class="logo-wall__name">GeeksforGeeks</span>
+          <span class="logo-wall__tenure">2024 – Present</span>
+          <div class="logo-wall__glow" style="--gc:#2f8d46"></div>
+        </div>
+
+        <div class="logo-wall__item logo-wall__item--leverage">
+          <div class="logo-wall__mark">
+            <svg viewBox="0 0 36 24" fill="none">
+              <text x="0" y="20" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700" fill="#4d8eff">LE</text>
+            </svg>
+          </div>
+          <span class="logo-wall__name">Leverage Edu</span>
+          <span class="logo-wall__tenure">2023 – 2024</span>
+          <div class="logo-wall__glow" style="--gc:#4d8eff"></div>
+        </div>
+
+        <div class="logo-wall__item logo-wall__item--qolomb">
+          <div class="logo-wall__mark">
+            <svg viewBox="0 0 24 24" fill="none">
+              <text x="2" y="20" font-family="Space Grotesk, sans-serif" font-size="20" font-weight="700" fill="#a78bfa">Q</text>
+            </svg>
+          </div>
+          <span class="logo-wall__name">Qolomb</span>
+          <span class="logo-wall__tenure">2022 – 2023</span>
+          <div class="logo-wall__glow" style="--gc:#a78bfa"></div>
+        </div>
+
+        <div class="logo-wall__item logo-wall__item--euro">
+          <div class="logo-wall__mark">
+            <svg viewBox="0 0 36 24" fill="none">
+              <text x="0" y="20" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700" fill="#fbbf24">ED</text>
+            </svg>
+          </div>
+          <span class="logo-wall__name">Euro Dreams</span>
+          <span class="logo-wall__tenure">2022</span>
+          <div class="logo-wall__glow" style="--gc:#fbbf24"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== METRICS ===== -->
+  <section class="section metrics-section" id="metrics">
+    <!-- Decorative megaphone watermark -->
+    <div class="metrics-deco" aria-hidden="true">
+      <svg viewBox="0 0 200 200" fill="none">
+        <path d="M40 90 C40 90 140 50 160 40 L160 160 C140 150 40 110 40 110 Z" stroke="rgba(200,169,110,0.06)" stroke-width="2" fill="none"/>
+        <path d="M40 90 L40 110 C40 110 20 110 20 100 C20 90 40 90 40 90 Z" stroke="rgba(200,169,110,0.06)" stroke-width="2" fill="none"/>
+        <line x1="175" y1="80" x2="190" y2="60" stroke="rgba(200,169,110,0.05)" stroke-width="2"/>
+        <line x1="175" y1="100" x2="195" y2="100" stroke="rgba(200,169,110,0.05)" stroke-width="2"/>
+        <line x1="175" y1="120" x2="190" y2="140" stroke="rgba(200,169,110,0.05)" stroke-width="2"/>
       </svg>
     </div>
-
-    <div class="container hero__container">
-      <div class="hero__content">
-        <p class="hero__eyebrow reveal-line">Senior Brand &amp; Growth Strategist</p>
-        <h1 class="hero__headline">
-          Marketing That<br>
-          <span class="hero__headline-accent">Builds Movements.</span>
-        </h1>
-        <p class="hero__sub">
-          Driving brand growth across campaigns, content,<br class="desktop-br">
-          performance marketing, and offline visibility.
-        </p>
-        <div class="hero__actions">
-          <a href="#contact" class="btn btn--primary">
-            <span>Work With Me</span>
-            <svg class="btn__arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a href="#work" class="btn btn--ghost">View My Work</a>
-        </div>
-      </div>
-
-      <div class="hero__visual">
-        <div class="hero__photo-wrap">
-          <img src="profile.jpg" alt="Avni Jain" class="hero__photo" id="heroPhoto" />
-          <div class="hero__photo-init" id="heroInit">AJ</div>
-        </div>
-        <div class="hero__float hero__float--a">
-          <span class="hero__float-val">466K+</span>
-          <span class="hero__float-key">Instagram Growth</span>
-        </div>
-        <div class="hero__float hero__float--b">
-          <span class="hero__float-val">10×</span>
-          <span class="hero__float-key">CTR Multiplier</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Metrics strip at bottom of hero -->
-    <div class="hero__strip">
-      <div class="container hero__strip-inner">
-        <div class="hero__strip-stat">
-          <span class="hero__strip-val">3M+</span>
-          <span class="hero__strip-key">Impressions</span>
-        </div>
-        <div class="hero__strip-sep"></div>
-        <div class="hero__strip-stat">
-          <span class="hero__strip-val">466K+</span>
-          <span class="hero__strip-key">Instagram Growth</span>
-        </div>
-        <div class="hero__strip-sep"></div>
-        <div class="hero__strip-stat">
-          <span class="hero__strip-val">2.5M</span>
-          <span class="hero__strip-key">LinkedIn Community</span>
-        </div>
-        <div class="hero__strip-sep"></div>
-        <div class="hero__strip-stat">
-          <span class="hero__strip-val">4</span>
-          <span class="hero__strip-key">Brands Scaled</span>
-        </div>
-        <div class="hero__strip-sep"></div>
-        <div class="hero__strip-stat">
-          <span class="hero__strip-val">3+</span>
-          <span class="hero__strip-key">Years of Impact</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== IMPACT METRICS ===== -->
-  <section class="metrics" id="impact">
     <div class="container">
-      <div class="section-hdr fade-up">
+      <div class="s-hdr fade-up">
         <span class="eyebrow">Impact by the numbers</span>
-        <h2 class="section-title">Results That<br><span class="title-accent">Speak Loudly</span></h2>
+        <h2 class="s-title">Numbers That<br><em>Define the Work</em></h2>
       </div>
-      <div class="metrics__grid">
-        <div class="metric-card fade-up">
-          <div class="metric-card__icon">
+      <div class="metrics-grid">
+        <div class="m-card fade-up">
+          <div class="m-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
           </div>
-          <div class="metric-card__num"><span class="counter" data-target="3" data-suffix="M+">0</span></div>
-          <div class="metric-card__label">Campaign Impressions</div>
-          <div class="metric-card__desc">Across all platforms and campaigns managed end-to-end</div>
+          <div class="m-card__val"><span class="counter" data-target="3" data-suffix="M+">0</span></div>
+          <div class="m-card__label">Campaign Impressions</div>
+          <div class="m-card__sub">Across all platforms and campaigns managed</div>
         </div>
-        <div class="metric-card fade-up">
-          <div class="metric-card__icon">
+        <div class="m-card fade-up">
+          <div class="m-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/><path d="M19 8c1.5.5 3 2 3 4s-1.5 3.5-3 4"/><path d="M2 12c0-2 1.5-3.5 3-4"/></svg>
+          </div>
+          <div class="m-card__val"><span class="counter" data-target="466" data-suffix="K+">0</span></div>
+          <div class="m-card__label">Instagram Growth</div>
+          <div class="m-card__sub">Net new community members at GFG</div>
+        </div>
+        <div class="m-card fade-up">
+          <div class="m-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div class="m-card__val"><span class="counter" data-target="2.5" data-suffix="M" data-decimals="1">0</span></div>
+          <div class="m-card__label">LinkedIn Community</div>
+          <div class="m-card__sub">Milestone crossed on GeeksforGeeks LinkedIn</div>
+        </div>
+        <div class="m-card fade-up">
+          <div class="m-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <div class="m-card__val"><span class="counter" data-target="10" data-suffix="×">0</span></div>
+          <div class="m-card__label">CTR Multiplier</div>
+          <div class="m-card__sub">Click-through rate improvement via sharper strategy</div>
+        </div>
+        <div class="m-card fade-up">
+          <div class="m-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
-          <div class="metric-card__num"><span class="counter" data-target="466" data-suffix="K+">0</span></div>
-          <div class="metric-card__label">Instagram Growth</div>
-          <div class="metric-card__desc">New community members built at GeeksforGeeks</div>
+          <div class="m-card__val"><span class="counter" data-target="12" data-suffix="%+">0</span></div>
+          <div class="m-card__label">Audience Growth</div>
+          <div class="m-card__sub">Influencer-led growth at Leverage Edu</div>
         </div>
-        <div class="metric-card fade-up">
-          <div class="metric-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="3" width="4" height="18"/><rect x="10" y="8" width="4" height="13"/><rect x="4" y="13" width="4" height="8"/></svg>
+        <div class="m-card fade-up">
+          <div class="m-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           </div>
-          <div class="metric-card__num"><span class="counter" data-target="2.5" data-suffix="M" data-decimals="1">0</span></div>
-          <div class="metric-card__label">LinkedIn Community</div>
-          <div class="metric-card__desc">Milestone crossed on GeeksforGeeks LinkedIn</div>
+          <div class="m-card__val"><span class="counter" data-target="40" data-suffix="%">0</span></div>
+          <div class="m-card__label">Brand Recall Lift</div>
+          <div class="m-card__sub">Achieved at Euro Dreams via multi-channel strategy</div>
         </div>
-        <div class="metric-card fade-up">
-          <div class="metric-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          </div>
-          <div class="metric-card__num"><span class="counter" data-target="10" data-suffix="×">0</span></div>
-          <div class="metric-card__label">CTR Multiplier</div>
-          <div class="metric-card__desc">CTR improvement via sharper ad strategy and creative</div>
-        </div>
-        <div class="metric-card fade-up">
-          <div class="metric-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
-          </div>
-          <div class="metric-card__num"><span class="counter" data-target="12" data-suffix="%+">0</span></div>
-          <div class="metric-card__label">Audience Growth</div>
-          <div class="metric-card__desc">Via influencer-led campaigns at Leverage Edu</div>
-        </div>
-        <div class="metric-card fade-up">
-          <div class="metric-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <div class="metric-card__num"><span class="counter" data-target="40" data-suffix="%">0</span></div>
-          <div class="metric-card__label">Brand Recall Lift</div>
-          <div class="metric-card__desc">Achieved at Euro Dreams within a short campaign window</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== EXPERTISE ===== -->
-  <section class="expertise" id="expertise">
-    <div class="container">
-      <div class="section-hdr fade-up">
-        <span class="eyebrow">Areas of excellence</span>
-        <h2 class="section-title">What I<br><span class="title-accent">Bring to the Table</span></h2>
-      </div>
-      <div class="expertise__grid">
-
-        <div class="exp-card fade-up">
-          <div class="exp-card__icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-              <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
-            </svg>
-          </div>
-          <h3 class="exp-card__title">Branding &amp; Strategy</h3>
-          <ul class="exp-card__list">
-            <li>Brand positioning frameworks</li>
-            <li>Visual identity direction</li>
-            <li>Integrated campaign storytelling</li>
-            <li>Strategic narrative building</li>
-          </ul>
-        </div>
-
-        <div class="exp-card fade-up">
-          <div class="exp-card__icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="3" width="20" height="12" rx="1.5"/>
-              <path d="M12 15v5"/><path d="M8 20h8"/>
-            </svg>
-          </div>
-          <h3 class="exp-card__title">Outdoor &amp; Offline Branding</h3>
-          <ul class="exp-card__list">
-            <li>Wall branding execution</li>
-            <li>Auto branding strategy</li>
-            <li>Hoardings &amp; billboard planning</li>
-            <li>Location-based brand visibility</li>
-            <li>On-ground awareness drives</li>
-          </ul>
-        </div>
-
-        <div class="exp-card fade-up">
-          <div class="exp-card__icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
-              <polyline points="17 6 23 6 23 12"/>
-            </svg>
-          </div>
-          <h3 class="exp-card__title">Performance &amp; Growth Marketing</h3>
-          <ul class="exp-card__list">
-            <li>Funnel architecture &amp; optimisation</li>
-            <li>Paid media coordination</li>
-            <li>Growth experimentation</li>
-            <li>Conversion-focused strategy</li>
-          </ul>
-        </div>
-
-        <div class="exp-card fade-up">
-          <div class="exp-card__icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
-              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-              <line x1="12" y1="19" x2="12" y2="23"/>
-              <line x1="8" y1="23" x2="16" y2="23"/>
-            </svg>
-          </div>
-          <h3 class="exp-card__title">Video Production &amp; Anchoring</h3>
-          <ul class="exp-card__list">
-            <li>Script development</li>
-            <li>On-camera brand representation</li>
-            <li>Video storytelling strategy</li>
-            <li>Campaign-based video execution</li>
-            <li>Production coordination</li>
-          </ul>
-        </div>
-
       </div>
     </div>
   </section>
 
   <!-- ===== CASE STUDIES ===== -->
-  <section class="work" id="work">
+  <section class="section work-section" id="work">
     <div class="container">
-      <div class="section-hdr fade-up">
-        <span class="eyebrow">Selected work</span>
-        <h2 class="section-title">Cases That<br><span class="title-accent">Moved the Needle</span></h2>
+      <div class="s-hdr fade-up">
+        <span class="eyebrow">Selected Work</span>
+        <h2 class="s-title">Case Studies in<br><em>Brand Growth</em></h2>
       </div>
 
-      <!-- CS 01 -->
-      <article class="cs fade-up">
-        <div class="cs__top">
-          <div class="cs__meta">
-            <span class="cs__index">01</span>
-            <div>
-              <span class="cs__company">GeeksforGeeks</span>
-              <span class="cs__period">Aug 2024 – Present · Marketing Executive → Senior</span>
+      <article class="cs-card fade-up cs-card--gfg">
+        <div class="cs-card__num">01</div>
+        <div class="cs-card__body">
+          <header class="cs-card__hdr">
+            <div class="cs-card__co">
+              <span class="cs-card__company">GeeksforGeeks</span>
+              <span class="cs-card__sep">·</span>
+              <span class="cs-card__period">Aug 2024 – Present</span>
+            </div>
+            <span class="cs-card__role">Marketing Executive → Senior</span>
+          </header>
+          <h3 class="cs-card__title">Scaling India's #1 Tech Learning Brand Across Social Media</h3>
+          <p class="cs-card__overview">Led the end-to-end social and performance marketing strategy for GeeksforGeeks — growing it into a dominant EdTech social presence. Owned community building, in-house video production, influencer marketing, and multi-channel paid campaigns while becoming part of the brand's own face.</p>
+          <div class="cs-pillars">
+            <div class="cs-pillar">
+              <h4 class="cs-pillar__title">Challenge</h4>
+              <p>Build and sustain high-engagement social communities for a technical EdTech brand, improve paid ad performance, and scale content production capabilities simultaneously across platforms.</p>
+            </div>
+            <div class="cs-pillar">
+              <h4 class="cs-pillar__title">Strategy &amp; Execution</h4>
+              <p>Developed a multi-format content strategy across organic and paid channels. Pioneered in-house video production at scale. Built and managed an end-to-end influencer marketing program and became the brand's face in campaigns and in-platform ads.</p>
             </div>
           </div>
-          <div class="cs__tag cs__tag--gfg">EdTech · Social · Performance</div>
-        </div>
-        <h3 class="cs__title">Scaling India's #1 Tech Learning Brand to 2.5M on LinkedIn</h3>
-        <div class="cs__blocks">
-          <div class="cs__block">
-            <span class="cs__block-label">Objective</span>
-            <p>Transform GFG's social presence into a dominant, high-engagement community across Instagram and LinkedIn while scaling paid ad performance.</p>
+          <div class="cs-card__outcomes">
+            <div class="outcome"><span class="outcome__val">466K+</span><span class="outcome__key">Instagram Growth</span></div>
+            <div class="outcome"><span class="outcome__val">2.5M</span><span class="outcome__key">LinkedIn Community</span></div>
+            <div class="outcome"><span class="outcome__val">10×</span><span class="outcome__key">CTR Improvement</span></div>
+            <div class="outcome"><span class="outcome__val">3M+</span><span class="outcome__key">Campaign Impressions</span></div>
           </div>
-          <div class="cs__block">
-            <span class="cs__block-label">Challenge</span>
-            <p>Technical EdTech content is hard to make engaging. Audience growth had plateaued and CTRs on paid campaigns were inconsistent across formats.</p>
-          </div>
-          <div class="cs__block">
-            <span class="cs__block-label">Strategy</span>
-            <p>Built a multi-format content engine — organic + paid. Introduced in-house video production. Designed an end-to-end influencer program. Became the brand's on-camera face across platforms.</p>
-          </div>
-          <div class="cs__block">
-            <span class="cs__block-label">Execution</span>
-            <p>Led solo influencer coordination, content calendar, ad creative testing, and performance reporting. Managed cross-functional teams across design, content, and product.</p>
-          </div>
-        </div>
-        <div class="cs__results">
-          <div class="cs__result"><span class="cs__result-val">466K+</span><span class="cs__result-key">Instagram Growth</span></div>
-          <div class="cs__result"><span class="cs__result-val">2.5M</span><span class="cs__result-key">LinkedIn Community</span></div>
-          <div class="cs__result"><span class="cs__result-val">10×</span><span class="cs__result-key">CTR Improvement</span></div>
-          <div class="cs__result"><span class="cs__result-val">3M+</span><span class="cs__result-key">Impressions</span></div>
         </div>
       </article>
 
-      <!-- CS 02 -->
-      <article class="cs fade-up">
-        <div class="cs__top">
-          <div class="cs__meta">
-            <span class="cs__index">02</span>
-            <div>
-              <span class="cs__company">Leverage Edu</span>
-              <span class="cs__period">Sep 2023 – Jul 2024 · Social Media Associate</span>
+      <article class="cs-card fade-up cs-card--leverage">
+        <div class="cs-card__num">02</div>
+        <div class="cs-card__body">
+          <header class="cs-card__hdr">
+            <div class="cs-card__co">
+              <span class="cs-card__company">Leverage Edu</span>
+              <span class="cs-card__sep">·</span>
+              <span class="cs-card__period">Sep 2023 – Jul 2024</span>
+            </div>
+            <span class="cs-card__role">Social Media Associate</span>
+          </header>
+          <h3 class="cs-card__title">Influencer-Led Community Growth for a Study Abroad Platform</h3>
+          <p class="cs-card__overview">Built and managed Leverage Edu's creator partnership program from the ground up — driving measurable audience growth through strategic influencer selection, structured content briefing, and continuous performance-led optimisation.</p>
+          <div class="cs-pillars">
+            <div class="cs-pillar">
+              <h4 class="cs-pillar__title">Challenge</h4>
+              <p>Accelerate social audience growth in a competitive EdTech space using influencer and brand campaigns while ensuring content quality and brand alignment across all creator partnerships.</p>
+            </div>
+            <div class="cs-pillar">
+              <h4 class="cs-pillar__title">Strategy &amp; Execution</h4>
+              <p>Identified high-fit creators, developed tailored content briefs, managed the full approval and delivery pipeline, and used engagement analytics to continuously refine the creator mix and optimise campaign formats.</p>
             </div>
           </div>
-          <div class="cs__tag cs__tag--leverage">EdTech · Influencer · Community</div>
-        </div>
-        <h3 class="cs__title">Influencer-Led Audience Growth for a Study Abroad Platform</h3>
-        <div class="cs__blocks">
-          <div class="cs__block">
-            <span class="cs__block-label">Objective</span>
-            <p>Accelerate social audience growth and improve campaign engagement through a structured creator partnership model.</p>
+          <div class="cs-card__outcomes">
+            <div class="outcome"><span class="outcome__val">12%+</span><span class="outcome__key">Audience Growth</span></div>
+            <div class="outcome"><span class="outcome__val">↑ Engagement</span><span class="outcome__key">Optimised Creator Mix</span></div>
+            <div class="outcome"><span class="outcome__val">E2E</span><span class="outcome__key">Influencer Pipeline Built</span></div>
           </div>
-          <div class="cs__block">
-            <span class="cs__block-label">Challenge</span>
-            <p>Creator quality was inconsistent. No standard briefing process existed. Brand alignment with influencer content was unpredictable and hard to measure.</p>
-          </div>
-          <div class="cs__block">
-            <span class="cs__block-label">Strategy</span>
-            <p>Built a complete influencer pipeline from scratch — creator vetting, content brief templates, approval workflows, and performance dashboards.</p>
-          </div>
-          <div class="cs__block">
-            <span class="cs__block-label">Execution</span>
-            <p>Managed 10+ creator partnerships simultaneously. Analysed engagement data weekly to refine creator mix, content formats, and posting cadence.</p>
-          </div>
-        </div>
-        <div class="cs__results">
-          <div class="cs__result"><span class="cs__result-val">12%+</span><span class="cs__result-key">Audience Growth</span></div>
-          <div class="cs__result"><span class="cs__result-val">E2E</span><span class="cs__result-key">Influencer Pipeline Built</span></div>
-          <div class="cs__result"><span class="cs__result-val">↑ CTR</span><span class="cs__result-key">Optimised Creator Mix</span></div>
         </div>
       </article>
 
-      <!-- CS 03 -->
-      <article class="cs fade-up">
-        <div class="cs__top">
-          <div class="cs__meta">
-            <span class="cs__index">03</span>
-            <div>
-              <span class="cs__company">Euro Dreams</span>
-              <span class="cs__period">Aug – Oct 2022 · Communication Lead</span>
+      <article class="cs-card fade-up cs-card--euro">
+        <div class="cs-card__num">03</div>
+        <div class="cs-card__body">
+          <header class="cs-card__hdr">
+            <div class="cs-card__co">
+              <span class="cs-card__company">Euro Dreams</span>
+              <span class="cs-card__sep">·</span>
+              <span class="cs-card__period">Aug – Oct 2022</span>
+            </div>
+            <span class="cs-card__role">Communication Lead</span>
+          </header>
+          <h3 class="cs-card__title">40% Brand Recall Lift via Multi-Channel Communication</h3>
+          <p class="cs-card__overview">Designed and executed a multi-channel brand communication strategy for Euro Dreams — achieving a measurable 40% increase in brand recall within a short engagement window through structured messaging experiments and rapid iteration.</p>
+          <div class="cs-pillars">
+            <div class="cs-pillar">
+              <h4 class="cs-pillar__title">Challenge</h4>
+              <p>Build brand awareness and recall in a saturated study abroad market with limited budget and a tight timeline, while maintaining message consistency across all touchpoints.</p>
+            </div>
+            <div class="cs-pillar">
+              <h4 class="cs-pillar__title">Strategy &amp; Execution</h4>
+              <p>Designed cohesive cross-channel messaging, ran structured experiments, and used early performance signals to sharpen the communication approach in real time.</p>
             </div>
           </div>
-          <div class="cs__tag cs__tag--euro">Brand · Multi-Channel · Awareness</div>
-        </div>
-        <h3 class="cs__title">40% Brand Recall Lift via Multi-Channel Communication</h3>
-        <div class="cs__blocks">
-          <div class="cs__block">
-            <span class="cs__block-label">Objective</span>
-            <p>Build brand recall for a study abroad consultancy in a saturated market within a short engagement window.</p>
+          <div class="cs-card__outcomes">
+            <div class="outcome"><span class="outcome__val">40%</span><span class="outcome__key">Brand Recall Increase</span></div>
+            <div class="outcome"><span class="outcome__val">Multi-Channel</span><span class="outcome__key">Strategy Designed</span></div>
           </div>
-          <div class="cs__block">
-            <span class="cs__block-label">Challenge</span>
-            <p>Low differentiation in a crowded category. Limited budget. No existing playbook for cross-channel brand messaging.</p>
-          </div>
-          <div class="cs__block">
-            <span class="cs__block-label">Strategy</span>
-            <p>Designed a cohesive multi-channel communication strategy with consistent messaging across digital and offline touchpoints, including structured message testing.</p>
-          </div>
-          <div class="cs__block">
-            <span class="cs__block-label">Execution</span>
-            <p>Built brand messaging architecture, ran controlled messaging experiments across channels, and iterated rapidly based on early performance signals.</p>
-          </div>
-        </div>
-        <div class="cs__results">
-          <div class="cs__result"><span class="cs__result-val">40%</span><span class="cs__result-key">Brand Recall Increase</span></div>
-          <div class="cs__result"><span class="cs__result-val">Multi-Channel</span><span class="cs__result-key">Strategy Deployed</span></div>
         </div>
       </article>
+    </div>
+  </section>
 
+  <!-- ===== EXPERTISE ===== -->
+  <section class="section expertise-section" id="expertise">
+    <!-- Decorative funnel watermark -->
+    <div class="exp-deco" aria-hidden="true">
+      <svg viewBox="0 0 200 200" fill="none">
+        <path d="M20 30 L180 30 L140 90 L140 160 L60 160 L60 90 Z" stroke="rgba(200,169,110,0.05)" stroke-width="2" fill="rgba(200,169,110,0.02)"/>
+      </svg>
+    </div>
+    <div class="container">
+      <div class="s-hdr fade-up">
+        <span class="eyebrow">Areas of Excellence</span>
+        <h2 class="s-title">Where I Create<br><em>Measurable Impact</em></h2>
+      </div>
+      <div class="exp-grid">
+        <div class="exp-card fade-up">
+          <div class="exp-card__icon-wrap">
+            <!-- Megaphone / Brand icon -->
+            <svg class="exp-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 11v2a6 6 0 0 0 6 6h0l1-3"/>
+              <path d="M11.5 4.5C14 3 20 2 21 3s0 7-1.5 9.5"/>
+              <path d="M5 10.5C6 9 10 7 11.5 7"/>
+              <path d="M5 13.5C6 15 10 17 11.5 17"/>
+              <path d="M21 3C20 9 14 13 11.5 13 10 13 6 12 5 10.5"/>
+            </svg>
+          </div>
+          <span class="exp-card__num">01</span>
+          <h3 class="exp-card__title">Brand &amp; Growth Strategy</h3>
+          <p class="exp-card__desc">Integrated campaign planning, brand positioning, funnel strategy, and multi-channel execution — all aligned to measurable business growth objectives.</p>
+          <ul class="exp-card__tags">
+            <li>Brand Architecture</li><li>Growth Marketing</li><li>Funnel Optimisation</li><li>Campaign Management</li><li>Paid Media</li>
+          </ul>
+        </div>
+
+        <div class="exp-card fade-up">
+          <div class="exp-card__icon-wrap">
+            <!-- Influencer / Network icon -->
+            <svg class="exp-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+              <path d="M8.59 13.51l6.83 3.98"/><path d="M15.41 6.51l-6.82 3.98"/>
+            </svg>
+          </div>
+          <span class="exp-card__num">02</span>
+          <h3 class="exp-card__title">Influencer &amp; Creator Economy</h3>
+          <p class="exp-card__desc">End-to-end influencer program ownership — from creator identification and briefing to performance tracking, scaling partnerships, and building internal talent pipelines.</p>
+          <ul class="exp-card__tags">
+            <li>Influencer Strategy</li><li>Creator Briefs</li><li>Partnership Scaling</li><li>Performance Tracking</li>
+          </ul>
+        </div>
+
+        <div class="exp-card fade-up">
+          <div class="exp-card__icon-wrap">
+            <!-- Analytics / Trending icon -->
+            <svg class="exp-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+              <polyline points="17 6 23 6 23 12"/>
+            </svg>
+          </div>
+          <span class="exp-card__num">03</span>
+          <h3 class="exp-card__title">Performance &amp; Analytics</h3>
+          <p class="exp-card__desc">Data-driven decision making with mastery of key performance metrics — CTR, CAC, reach, and engagement — to continuously improve campaign ROI and demonstrate impact.</p>
+          <ul class="exp-card__tags">
+            <li>Google Analytics</li><li>CTR &amp; CAC</li><li>SEO / SEM</li><li>HubSpot CRM</li><li>Google Ads</li>
+          </ul>
+        </div>
+
+        <div class="exp-card fade-up">
+          <div class="exp-card__icon-wrap">
+            <!-- Content / Broadcast icon -->
+            <svg class="exp-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 7l-7 5 7 5V7z"/>
+              <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+            </svg>
+          </div>
+          <span class="exp-card__num">04</span>
+          <h3 class="exp-card__title">Content Production &amp; Distribution</h3>
+          <p class="exp-card__desc">Creating and scaling content ecosystems — from in-house video productions to cross-platform publishing strategy and paid media amplification that drives real reach.</p>
+          <ul class="exp-card__tags">
+            <li>Video Production</li><li>Social Strategy</li><li>Distribution Planning</li><li>Content Calendars</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- ===== ABOUT ===== -->
-  <section class="about" id="about">
+  <section class="section about-section" id="about">
     <div class="container">
-      <div class="about__inner">
-        <div class="about__photo-col fade-up">
-          <div class="about__photo-frame">
-            <img src="profile.jpg" alt="Avni Jain" class="about__photo" />
-            <div class="about__photo-fb">AJ</div>
+      <div class="about-inner">
+        <div class="about-left fade-up">
+          <div class="about-photo-frame">
+            <img src="profile.jpg" alt="Avni Jain" class="about-photo" />
+            <div class="about-photo-fb">AJ</div>
           </div>
-          <div class="about__creds">
+          <div class="creds">
             <div class="cred">
-              <span class="cred__dot"></span>
-              <div class="cred__text">
+              <span class="cred__icon">🎓</span>
+              <div class="cred__info">
                 <strong>Integrated M.Sc. Electronic Media</strong>
                 <span>EMRC, DAVV · Indore · 2022</span>
               </div>
             </div>
             <div class="cred">
-              <span class="cred__dot"></span>
-              <div class="cred__text">
-                <strong>Google Digital Marketing Certified</strong>
-                <span>Google</span>
+              <span class="cred__icon">🏅</span>
+              <div class="cred__info">
+                <strong>Google Digital Marketing</strong>
+                <span>Certified · Google</span>
               </div>
             </div>
             <div class="cred">
-              <span class="cred__dot"></span>
-              <div class="cred__text">
-                <strong>Google Ads Certified</strong>
-                <span>Google</span>
+              <span class="cred__icon">🏅</span>
+              <div class="cred__info">
+                <strong>Google Ads Certification</strong>
+                <span>Certified · Google</span>
               </div>
             </div>
           </div>
         </div>
-        <div class="about__text-col fade-up">
-          <span class="eyebrow">The strategist behind the numbers</span>
-          <h2 class="section-title" style="margin-bottom:20px;">Marketing Isn't<br>My Job — <span class="title-accent">It's My Default.</span></h2>
-          <p class="about__para">I'm a senior marketing strategist with 3+ years of experience translating brand objectives into campaigns that move communities, shift metrics, and build presence that lasts — across digital, social, and offline channels.</p>
-          <p class="about__para">At GeeksforGeeks, I didn't just manage social media — I built a content engine, scaled an influencer program solo, appeared in brand campaigns, and drove numbers that actually moved business. At Leverage Edu, I systematised creator partnerships from scratch. At Euro Dreams, I built brand recall from zero.</p>
-          <p class="about__para">I think in frameworks, execute with precision, and measure everything. Now stepping up as a Senior, ready for bigger briefs and bolder ideas.</p>
-          <blockquote class="about__quote">
+        <div class="about-right fade-up">
+          <span class="eyebrow">The story behind the strategy</span>
+          <h2 class="s-title" style="margin-bottom:24px;">Marketing Isn't My Job —<br><em>It's How I Think</em></h2>
+          <p class="about-para">I'm a results-oriented marketing strategist with 3+ years of experience translating brand objectives into campaigns that move communities, shift metrics, and build lasting presence across EdTech and consumer platforms.</p>
+          <p class="about-para">At GeeksforGeeks, I didn't just manage social media — I helped build a movement. Growing an Instagram community by 466K, crossing 2.5M on LinkedIn, pioneering in-house video productions, and multiplying CTRs 10× were the outcomes of strategic thinking combined with relentless hands-on execution.</p>
+          <p class="about-para">Now stepping into a senior role, I bring the confidence of someone who has pushed boundaries, hired and built talent, and turned bold ideas into measurable impact — with hunger for even bigger challenges ahead.</p>
+          <blockquote class="about-quote">
             "The joy of seeing an idea turn into impact — that's what drives every campaign I build."
           </blockquote>
+          <div class="about-links">
+            <a href="mailto:avnijmailbox@gmail.com" class="btn btn--gold">Email Me</a>
+            <a href="https://linkedin.com/in/avnijain421" target="_blank" rel="noopener" class="btn btn--outline">LinkedIn ↗</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== CONTACT / FOOTER ===== -->
-  <footer class="footer" id="contact">
-    <div class="footer__bg" aria-hidden="true"></div>
+  <!-- ===== CONTACT ===== -->
+  <section class="contact-section" id="contact">
+    <div class="contact-section__bg"></div>
+    <!-- Decorative growth arrow -->
+    <div class="contact-deco" aria-hidden="true">
+      <svg viewBox="0 0 300 200" fill="none">
+        <path d="M20 160 Q80 80 160 60 Q220 45 280 20" stroke="rgba(200,169,110,0.07)" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M260 10 L280 20 L270 42" stroke="rgba(200,169,110,0.07)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </div>
     <div class="container">
-      <div class="footer__inner">
-        <div class="footer__cta fade-up">
-          <span class="eyebrow" style="color:var(--accent);">Let's build something great</span>
-          <h2 class="footer__heading">Ready When<br><span class="title-accent">You Are.</span></h2>
-          <p class="footer__sub">I'm open to senior marketing roles, consulting projects, and brand collaborations that demand strategic thinking and real execution.</p>
-          <div class="footer__actions">
-            <a href="mailto:avnijmailbox@gmail.com" class="btn btn--primary">
-              <span>Send Me an Email</span>
-              <svg class="btn__arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <a href="https://linkedin.com/in/avnijain421" target="_blank" rel="noopener" class="btn btn--ghost">LinkedIn Profile</a>
-          </div>
-          <div class="footer__links">
-            <a href="mailto:avnijmailbox@gmail.com">avnijmailbox@gmail.com</a>
-            <span>·</span>
-            <a href="tel:+919109706100">+91 91097 06100</a>
-            <span>·</span>
-            <a href="https://linkedin.com/in/avnijain421" target="_blank" rel="noopener">linkedin.com/in/avnijain421</a>
-          </div>
+      <div class="contact-content fade-up">
+        <span class="eyebrow" style="color:var(--gold);">Ready to collaborate?</span>
+        <h2 class="contact-title">Let's Build Something<br><em>That Moves the Needle</em></h2>
+        <p class="contact-sub">Whether you're building a brand, launching a campaign, or scaling a marketing function — I'd love to make it happen together.</p>
+        <div class="contact-btns">
+          <a href="mailto:avnijmailbox@gmail.com" class="btn btn--gold btn--lg">Send Me an Email</a>
+          <a href="https://linkedin.com/in/avnijain421" target="_blank" rel="noopener" class="btn btn--outline btn--lg">Connect on LinkedIn</a>
         </div>
-        <div class="footer__bottom">
-          <span class="footer__name">Avni Jain</span>
-          <span class="footer__copy">© 2025 · Senior Brand &amp; Growth Strategist</span>
-          <span class="footer__tag">"Ideas turned into impact."</span>
+        <div class="contact-meta">
+          <a href="mailto:avnijmailbox@gmail.com">avnijmailbox@gmail.com</a>
+          <span>·</span>
+          <a href="tel:+919109706100">+91 91097 06100</a>
+          <span>·</span>
+          <a href="https://linkedin.com/in/avnijain421" target="_blank" rel="noopener">linkedin.com/in/avnijain421</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-name">Avni Jain</span>
+        <p class="footer-role">Senior Marketing &amp; Brand Strategist</p>
+        <p class="footer-quote">"Ideas turned into impact."</p>
       </div>
     </div>
   </footer>
