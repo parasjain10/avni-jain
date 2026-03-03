@@ -4,13 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Avni Jain — Senior Marketing & Brand Strategist</title>
-  <meta name="description" content="Avni Jain is a Senior Marketing & Brand Strategist with 3+ years driving 3M+ impressions, 466K+ Instagram growth, and measurable brand impact across EdTech." />
+  <meta name="description" content="Senior Marketing & Brand Strategist with 3+ years driving 3M+ impressions, 466K+ Instagram growth, and measurable brand impact." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <!-- Noise texture overlay (decorative) -->
+  <svg class="noise-svg" aria-hidden="true">
+    <filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+    <rect width="100%" height="100%" filter="url(#noise)" opacity="0.035"/>
+  </svg>
 
   <!-- ===== NAVIGATION ===== -->
   <nav class="nav" id="nav">
@@ -29,6 +35,16 @@
 
   <!-- ===== HERO ===== -->
   <section class="hero" id="hero">
+    <!-- Decorative background grid -->
+    <svg class="hero__grid" aria-hidden="true" preserveAspectRatio="none">
+      <defs>
+        <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+          <path d="M 48 0 L 0 0 0 48" fill="none" stroke="rgba(200,169,110,0.06)" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)"/>
+    </svg>
+
     <div class="hero__container container">
       <div class="hero__text">
         <p class="hero__kicker">Senior Marketing &amp; Brand Strategist</p>
@@ -64,6 +80,8 @@
           <div class="hero__dot hero__dot--a"></div>
           <div class="hero__dot hero__dot--b"></div>
         </div>
+
+        <!-- Floating achievement badges -->
         <div class="hero__badge hero__badge--top">
           <span class="hero__badge-val">466K+</span>
           <span class="hero__badge-key">Instagram Growth</span>
@@ -72,44 +90,114 @@
           <span class="hero__badge-val">10×</span>
           <span class="hero__badge-key">CTR Multiplier</span>
         </div>
+
+        <!-- Mini analytics dashboard card -->
+        <div class="hero__dash">
+          <div class="hero__dash-head">
+            <span class="hero__dash-title">Campaign Performance</span>
+            <span class="hero__dash-live"><span class="hero__dash-dot"></span>Live</span>
+          </div>
+          <svg class="hero__dash-chart" viewBox="0 0 160 44" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="cg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#c8a96e" stop-opacity=".5"/>
+                <stop offset="100%" stop-color="#c8a96e" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <polygon points="0,40 0,34 20,30 50,32 80,18 110,22 140,10 160,6 160,40" fill="url(#cg)"/>
+            <polyline points="0,34 20,30 50,32 80,18 110,22 140,10 160,6" stroke="#c8a96e" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="hero__dash-kpis">
+            <div class="hero__dash-kpi">
+              <span class="hero__dash-kpi-val">+247%</span>
+              <span class="hero__dash-kpi-key">CTR Growth</span>
+            </div>
+            <div class="hero__dash-kpi">
+              <span class="hero__dash-kpi-val">3M+</span>
+              <span class="hero__dash-kpi-key">Impressions</span>
+            </div>
+            <div class="hero__dash-kpi">
+              <span class="hero__dash-kpi-val">↑ 40%</span>
+              <span class="hero__dash-kpi-key">Brand Recall</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
     <a href="#brands" class="hero__scroll">
       <span>Scroll</span>
       <div class="hero__scroll-line"></div>
     </a>
   </section>
 
-  <!-- ===== BRANDS ===== -->
-  <section class="brands" id="brands">
+  <!-- ===== LOGO WALL ===== -->
+  <section class="logo-wall" id="brands">
     <div class="container">
-      <p class="brands__label">Brands I've helped grow</p>
-      <div class="brands__row">
-        <div class="brand brand--gfg">
-          <span class="brand__badge">GFG</span>
-          <span class="brand__name">GeeksforGeeks</span>
+      <p class="logo-wall__label">Brands I've helped grow</p>
+      <div class="logo-wall__grid">
+
+        <div class="logo-wall__item logo-wall__item--gfg">
+          <div class="logo-wall__mark">
+            <!-- GFG monogram -->
+            <svg viewBox="0 0 48 24" fill="none">
+              <text x="0" y="20" font-family="Space Grotesk, sans-serif" font-size="18" font-weight="700" fill="#2f8d46">GFG</text>
+            </svg>
+          </div>
+          <span class="logo-wall__name">GeeksforGeeks</span>
+          <span class="logo-wall__tenure">2024 – Present</span>
+          <div class="logo-wall__glow" style="--gc:#2f8d46"></div>
         </div>
-        <div class="brand-sep"></div>
-        <div class="brand brand--leverage">
-          <span class="brand__badge">LE</span>
-          <span class="brand__name">Leverage Edu</span>
+
+        <div class="logo-wall__item logo-wall__item--leverage">
+          <div class="logo-wall__mark">
+            <svg viewBox="0 0 36 24" fill="none">
+              <text x="0" y="20" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700" fill="#4d8eff">LE</text>
+            </svg>
+          </div>
+          <span class="logo-wall__name">Leverage Edu</span>
+          <span class="logo-wall__tenure">2023 – 2024</span>
+          <div class="logo-wall__glow" style="--gc:#4d8eff"></div>
         </div>
-        <div class="brand-sep"></div>
-        <div class="brand brand--qolomb">
-          <span class="brand__badge">Q</span>
-          <span class="brand__name">Qolomb</span>
+
+        <div class="logo-wall__item logo-wall__item--qolomb">
+          <div class="logo-wall__mark">
+            <svg viewBox="0 0 24 24" fill="none">
+              <text x="2" y="20" font-family="Space Grotesk, sans-serif" font-size="20" font-weight="700" fill="#a78bfa">Q</text>
+            </svg>
+          </div>
+          <span class="logo-wall__name">Qolomb</span>
+          <span class="logo-wall__tenure">2022 – 2023</span>
+          <div class="logo-wall__glow" style="--gc:#a78bfa"></div>
         </div>
-        <div class="brand-sep"></div>
-        <div class="brand brand--euro">
-          <span class="brand__badge">ED</span>
-          <span class="brand__name">Euro Dreams</span>
+
+        <div class="logo-wall__item logo-wall__item--euro">
+          <div class="logo-wall__mark">
+            <svg viewBox="0 0 36 24" fill="none">
+              <text x="0" y="20" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700" fill="#fbbf24">ED</text>
+            </svg>
+          </div>
+          <span class="logo-wall__name">Euro Dreams</span>
+          <span class="logo-wall__tenure">2022</span>
+          <div class="logo-wall__glow" style="--gc:#fbbf24"></div>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- ===== METRICS ===== -->
   <section class="section metrics-section" id="metrics">
+    <!-- Decorative megaphone watermark -->
+    <div class="metrics-deco" aria-hidden="true">
+      <svg viewBox="0 0 200 200" fill="none">
+        <path d="M40 90 C40 90 140 50 160 40 L160 160 C140 150 40 110 40 110 Z" stroke="rgba(200,169,110,0.06)" stroke-width="2" fill="none"/>
+        <path d="M40 90 L40 110 C40 110 20 110 20 100 C20 90 40 90 40 90 Z" stroke="rgba(200,169,110,0.06)" stroke-width="2" fill="none"/>
+        <line x1="175" y1="80" x2="190" y2="60" stroke="rgba(200,169,110,0.05)" stroke-width="2"/>
+        <line x1="175" y1="100" x2="195" y2="100" stroke="rgba(200,169,110,0.05)" stroke-width="2"/>
+        <line x1="175" y1="120" x2="190" y2="140" stroke="rgba(200,169,110,0.05)" stroke-width="2"/>
+      </svg>
+    </div>
     <div class="container">
       <div class="s-hdr fade-up">
         <span class="eyebrow">Impact by the numbers</span>
@@ -117,44 +205,50 @@
       </div>
       <div class="metrics-grid">
         <div class="m-card fade-up">
-          <div class="m-card__val">
-            <span class="counter" data-target="3" data-suffix="M+">0</span>
+          <div class="m-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
           </div>
+          <div class="m-card__val"><span class="counter" data-target="3" data-suffix="M+">0</span></div>
           <div class="m-card__label">Campaign Impressions</div>
           <div class="m-card__sub">Across all platforms and campaigns managed</div>
         </div>
         <div class="m-card fade-up">
-          <div class="m-card__val">
-            <span class="counter" data-target="466" data-suffix="K+">0</span>
+          <div class="m-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/><path d="M19 8c1.5.5 3 2 3 4s-1.5 3.5-3 4"/><path d="M2 12c0-2 1.5-3.5 3-4"/></svg>
           </div>
+          <div class="m-card__val"><span class="counter" data-target="466" data-suffix="K+">0</span></div>
           <div class="m-card__label">Instagram Growth</div>
-          <div class="m-card__sub">Net new community members added at GFG</div>
+          <div class="m-card__sub">Net new community members at GFG</div>
         </div>
         <div class="m-card fade-up">
-          <div class="m-card__val">
-            <span class="counter" data-target="2.5" data-suffix="M" data-decimals="1">0</span>
+          <div class="m-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           </div>
+          <div class="m-card__val"><span class="counter" data-target="2.5" data-suffix="M" data-decimals="1">0</span></div>
           <div class="m-card__label">LinkedIn Community</div>
           <div class="m-card__sub">Milestone crossed on GeeksforGeeks LinkedIn</div>
         </div>
         <div class="m-card fade-up">
-          <div class="m-card__val">
-            <span class="counter" data-target="10" data-suffix="×">0</span>
+          <div class="m-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
           </div>
+          <div class="m-card__val"><span class="counter" data-target="10" data-suffix="×">0</span></div>
           <div class="m-card__label">CTR Multiplier</div>
           <div class="m-card__sub">Click-through rate improvement via sharper strategy</div>
         </div>
         <div class="m-card fade-up">
-          <div class="m-card__val">
-            <span class="counter" data-target="12" data-suffix="%+">0</span>
+          <div class="m-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
+          <div class="m-card__val"><span class="counter" data-target="12" data-suffix="%+">0</span></div>
           <div class="m-card__label">Audience Growth</div>
           <div class="m-card__sub">Influencer-led growth at Leverage Edu</div>
         </div>
         <div class="m-card fade-up">
-          <div class="m-card__val">
-            <span class="counter" data-target="40" data-suffix="%">0</span>
+          <div class="m-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           </div>
+          <div class="m-card__val"><span class="counter" data-target="40" data-suffix="%">0</span></div>
           <div class="m-card__label">Brand Recall Lift</div>
           <div class="m-card__sub">Achieved at Euro Dreams via multi-channel strategy</div>
         </div>
@@ -170,7 +264,6 @@
         <h2 class="s-title">Case Studies in<br><em>Brand Growth</em></h2>
       </div>
 
-      <!-- CS 01 -->
       <article class="cs-card fade-up cs-card--gfg">
         <div class="cs-card__num">01</div>
         <div class="cs-card__body">
@@ -191,31 +284,18 @@
             </div>
             <div class="cs-pillar">
               <h4 class="cs-pillar__title">Strategy &amp; Execution</h4>
-              <p>Developed a multi-format content strategy across organic and paid channels. Pioneered in-house video production at scale. Built and managed an end-to-end influencer marketing program — often solo — and became the brand's face in campaigns and in-platform ads.</p>
+              <p>Developed a multi-format content strategy across organic and paid channels. Pioneered in-house video production at scale. Built and managed an end-to-end influencer marketing program and became the brand's face in campaigns and in-platform ads.</p>
             </div>
           </div>
           <div class="cs-card__outcomes">
-            <div class="outcome">
-              <span class="outcome__val">466K+</span>
-              <span class="outcome__key">Instagram Growth</span>
-            </div>
-            <div class="outcome">
-              <span class="outcome__val">2.5M</span>
-              <span class="outcome__key">LinkedIn Community</span>
-            </div>
-            <div class="outcome">
-              <span class="outcome__val">10×</span>
-              <span class="outcome__key">CTR Improvement</span>
-            </div>
-            <div class="outcome">
-              <span class="outcome__val">3M+</span>
-              <span class="outcome__key">Campaign Impressions</span>
-            </div>
+            <div class="outcome"><span class="outcome__val">466K+</span><span class="outcome__key">Instagram Growth</span></div>
+            <div class="outcome"><span class="outcome__val">2.5M</span><span class="outcome__key">LinkedIn Community</span></div>
+            <div class="outcome"><span class="outcome__val">10×</span><span class="outcome__key">CTR Improvement</span></div>
+            <div class="outcome"><span class="outcome__val">3M+</span><span class="outcome__key">Campaign Impressions</span></div>
           </div>
         </div>
       </article>
 
-      <!-- CS 02 -->
       <article class="cs-card fade-up cs-card--leverage">
         <div class="cs-card__num">02</div>
         <div class="cs-card__body">
@@ -240,23 +320,13 @@
             </div>
           </div>
           <div class="cs-card__outcomes">
-            <div class="outcome">
-              <span class="outcome__val">12%+</span>
-              <span class="outcome__key">Audience Growth</span>
-            </div>
-            <div class="outcome">
-              <span class="outcome__val">↑ Engagement</span>
-              <span class="outcome__key">Optimised Creator Mix</span>
-            </div>
-            <div class="outcome">
-              <span class="outcome__val">E2E</span>
-              <span class="outcome__key">Influencer Pipeline Built</span>
-            </div>
+            <div class="outcome"><span class="outcome__val">12%+</span><span class="outcome__key">Audience Growth</span></div>
+            <div class="outcome"><span class="outcome__val">↑ Engagement</span><span class="outcome__key">Optimised Creator Mix</span></div>
+            <div class="outcome"><span class="outcome__val">E2E</span><span class="outcome__key">Influencer Pipeline Built</span></div>
           </div>
         </div>
       </article>
 
-      <!-- CS 03 -->
       <article class="cs-card fade-up cs-card--euro">
         <div class="cs-card__num">03</div>
         <div class="cs-card__body">
@@ -269,7 +339,7 @@
             <span class="cs-card__role">Communication Lead</span>
           </header>
           <h3 class="cs-card__title">40% Brand Recall Lift via Multi-Channel Communication</h3>
-          <p class="cs-card__overview">Designed and executed a multi-channel brand communication strategy for Euro Dreams — a study abroad consultancy — achieving a measurable 40% increase in brand recall within a short engagement window through structured messaging experiments and rapid iteration.</p>
+          <p class="cs-card__overview">Designed and executed a multi-channel brand communication strategy for Euro Dreams — achieving a measurable 40% increase in brand recall within a short engagement window through structured messaging experiments and rapid iteration.</p>
           <div class="cs-pillars">
             <div class="cs-pillar">
               <h4 class="cs-pillar__title">Challenge</h4>
@@ -277,18 +347,12 @@
             </div>
             <div class="cs-pillar">
               <h4 class="cs-pillar__title">Strategy &amp; Execution</h4>
-              <p>Designed cohesive cross-channel messaging, ran structured messaging experiments, and used early performance signals to sharpen the communication approach in real time.</p>
+              <p>Designed cohesive cross-channel messaging, ran structured experiments, and used early performance signals to sharpen the communication approach in real time.</p>
             </div>
           </div>
           <div class="cs-card__outcomes">
-            <div class="outcome">
-              <span class="outcome__val">40%</span>
-              <span class="outcome__key">Brand Recall Increase</span>
-            </div>
-            <div class="outcome">
-              <span class="outcome__val">Multi-Channel</span>
-              <span class="outcome__key">Strategy Designed</span>
-            </div>
+            <div class="outcome"><span class="outcome__val">40%</span><span class="outcome__key">Brand Recall Increase</span></div>
+            <div class="outcome"><span class="outcome__val">Multi-Channel</span><span class="outcome__key">Strategy Designed</span></div>
           </div>
         </div>
       </article>
@@ -297,6 +361,12 @@
 
   <!-- ===== EXPERTISE ===== -->
   <section class="section expertise-section" id="expertise">
+    <!-- Decorative funnel watermark -->
+    <div class="exp-deco" aria-hidden="true">
+      <svg viewBox="0 0 200 200" fill="none">
+        <path d="M20 30 L180 30 L140 90 L140 160 L60 160 L60 90 Z" stroke="rgba(200,169,110,0.05)" stroke-width="2" fill="rgba(200,169,110,0.02)"/>
+      </svg>
+    </div>
     <div class="container">
       <div class="s-hdr fade-up">
         <span class="eyebrow">Areas of Excellence</span>
@@ -304,49 +374,69 @@
       </div>
       <div class="exp-grid">
         <div class="exp-card fade-up">
+          <div class="exp-card__icon-wrap">
+            <!-- Megaphone / Brand icon -->
+            <svg class="exp-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 11v2a6 6 0 0 0 6 6h0l1-3"/>
+              <path d="M11.5 4.5C14 3 20 2 21 3s0 7-1.5 9.5"/>
+              <path d="M5 10.5C6 9 10 7 11.5 7"/>
+              <path d="M5 13.5C6 15 10 17 11.5 17"/>
+              <path d="M21 3C20 9 14 13 11.5 13 10 13 6 12 5 10.5"/>
+            </svg>
+          </div>
           <span class="exp-card__num">01</span>
           <h3 class="exp-card__title">Brand &amp; Growth Strategy</h3>
           <p class="exp-card__desc">Integrated campaign planning, brand positioning, funnel strategy, and multi-channel execution — all aligned to measurable business growth objectives.</p>
           <ul class="exp-card__tags">
-            <li>Brand Architecture</li>
-            <li>Growth Marketing</li>
-            <li>Funnel Optimisation</li>
-            <li>Campaign Management</li>
-            <li>Paid Media</li>
+            <li>Brand Architecture</li><li>Growth Marketing</li><li>Funnel Optimisation</li><li>Campaign Management</li><li>Paid Media</li>
           </ul>
         </div>
+
         <div class="exp-card fade-up">
+          <div class="exp-card__icon-wrap">
+            <!-- Influencer / Network icon -->
+            <svg class="exp-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+              <path d="M8.59 13.51l6.83 3.98"/><path d="M15.41 6.51l-6.82 3.98"/>
+            </svg>
+          </div>
           <span class="exp-card__num">02</span>
           <h3 class="exp-card__title">Influencer &amp; Creator Economy</h3>
           <p class="exp-card__desc">End-to-end influencer program ownership — from creator identification and briefing to performance tracking, scaling partnerships, and building internal talent pipelines.</p>
           <ul class="exp-card__tags">
-            <li>Influencer Strategy</li>
-            <li>Creator Briefs</li>
-            <li>Partnership Scaling</li>
-            <li>Performance Tracking</li>
+            <li>Influencer Strategy</li><li>Creator Briefs</li><li>Partnership Scaling</li><li>Performance Tracking</li>
           </ul>
         </div>
+
         <div class="exp-card fade-up">
+          <div class="exp-card__icon-wrap">
+            <!-- Analytics / Trending icon -->
+            <svg class="exp-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+              <polyline points="17 6 23 6 23 12"/>
+            </svg>
+          </div>
           <span class="exp-card__num">03</span>
           <h3 class="exp-card__title">Performance &amp; Analytics</h3>
           <p class="exp-card__desc">Data-driven decision making with mastery of key performance metrics — CTR, CAC, reach, and engagement — to continuously improve campaign ROI and demonstrate impact.</p>
           <ul class="exp-card__tags">
-            <li>Google Analytics</li>
-            <li>CTR &amp; CAC Tracking</li>
-            <li>SEO / SEM</li>
-            <li>HubSpot CRM</li>
-            <li>Google Ads</li>
+            <li>Google Analytics</li><li>CTR &amp; CAC</li><li>SEO / SEM</li><li>HubSpot CRM</li><li>Google Ads</li>
           </ul>
         </div>
+
         <div class="exp-card fade-up">
+          <div class="exp-card__icon-wrap">
+            <!-- Content / Broadcast icon -->
+            <svg class="exp-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 7l-7 5 7 5V7z"/>
+              <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+            </svg>
+          </div>
           <span class="exp-card__num">04</span>
           <h3 class="exp-card__title">Content Production &amp; Distribution</h3>
           <p class="exp-card__desc">Creating and scaling content ecosystems — from in-house video productions to cross-platform publishing strategy and paid media amplification that drives real reach.</p>
           <ul class="exp-card__tags">
-            <li>Video Production</li>
-            <li>Social Content Strategy</li>
-            <li>Distribution Planning</li>
-            <li>Content Calendars</li>
+            <li>Video Production</li><li>Social Strategy</li><li>Distribution Planning</li><li>Content Calendars</li>
           </ul>
         </div>
       </div>
@@ -391,7 +481,7 @@
           <h2 class="s-title" style="margin-bottom:24px;">Marketing Isn't My Job —<br><em>It's How I Think</em></h2>
           <p class="about-para">I'm a results-oriented marketing strategist with 3+ years of experience translating brand objectives into campaigns that move communities, shift metrics, and build lasting presence across EdTech and consumer platforms.</p>
           <p class="about-para">At GeeksforGeeks, I didn't just manage social media — I helped build a movement. Growing an Instagram community by 466K, crossing 2.5M on LinkedIn, pioneering in-house video productions, and multiplying CTRs 10× were the outcomes of strategic thinking combined with relentless hands-on execution.</p>
-          <p class="about-para">Now stepping into a senior role, I bring the confidence of someone who has pushed boundaries, hired and built talent, and turned bold ideas into measurable impact — with the hunger for even bigger challenges ahead.</p>
+          <p class="about-para">Now stepping into a senior role, I bring the confidence of someone who has pushed boundaries, hired and built talent, and turned bold ideas into measurable impact — with hunger for even bigger challenges ahead.</p>
           <blockquote class="about-quote">
             "The joy of seeing an idea turn into impact — that's what drives every campaign I build."
           </blockquote>
@@ -407,6 +497,13 @@
   <!-- ===== CONTACT ===== -->
   <section class="contact-section" id="contact">
     <div class="contact-section__bg"></div>
+    <!-- Decorative growth arrow -->
+    <div class="contact-deco" aria-hidden="true">
+      <svg viewBox="0 0 300 200" fill="none">
+        <path d="M20 160 Q80 80 160 60 Q220 45 280 20" stroke="rgba(200,169,110,0.07)" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M260 10 L280 20 L270 42" stroke="rgba(200,169,110,0.07)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </div>
     <div class="container">
       <div class="contact-content fade-up">
         <span class="eyebrow" style="color:var(--gold);">Ready to collaborate?</span>
