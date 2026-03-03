@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Avni Jain — Marketing Professional</title>
+  <title>Avni Jain — Senior Marketing & Brand Strategist</title>
+  <meta name="description" content="Avni Jain is a Senior Marketing & Brand Strategist with 3+ years driving 3M+ impressions, 466K+ Instagram growth, and measurable brand impact across EdTech." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
   <!-- ===== NAVIGATION ===== -->
   <nav class="nav" id="nav">
-    <div class="nav__logo">AJ</div>
+    <a href="#hero" class="nav__logo">AJ</a>
     <ul class="nav__links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#metrics">Impact</a></li>
+      <li><a href="#expertise">Expertise</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#numbers">Numbers</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="nav__cta-link">Let's Talk</a></li>
     </ul>
     <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -29,368 +29,400 @@
 
   <!-- ===== HERO ===== -->
   <section class="hero" id="hero">
-    <div class="hero__bg"></div>
-    <div class="hero__content fade-up">
-      <p class="hero__eyebrow">Hi, I'm</p>
-      <h1 class="hero__name">Avni Jain</h1>
-      <p class="hero__title">Marketing Executive &nbsp;·&nbsp; Brand &amp; Growth Strategist</p>
-      <p class="hero__tagline">Turning ideas into impact — one campaign at a time.</p>
-      <div class="hero__cta">
-        <a href="#contact" class="btn btn--primary">Get In Touch</a>
-        <a href="#experience" class="btn btn--outline">View My Work</a>
+    <div class="hero__container container">
+      <div class="hero__text">
+        <p class="hero__kicker">Senior Marketing &amp; Brand Strategist</p>
+        <h1 class="hero__name">Avni<br>Jain</h1>
+        <p class="hero__prop">I build brands that scale, craft campaigns that convert, and create communities that last.</p>
+        <div class="hero__stats-row">
+          <div class="hero__stat">
+            <span class="hero__stat-val">3M+</span>
+            <span class="hero__stat-key">Impressions</span>
+          </div>
+          <div class="hero__stat-sep"></div>
+          <div class="hero__stat">
+            <span class="hero__stat-val">3+</span>
+            <span class="hero__stat-key">Years</span>
+          </div>
+          <div class="hero__stat-sep"></div>
+          <div class="hero__stat">
+            <span class="hero__stat-val">4</span>
+            <span class="hero__stat-key">Brands</span>
+          </div>
+        </div>
+        <div class="hero__btns">
+          <a href="#work" class="btn btn--gold">View Case Studies</a>
+          <a href="#contact" class="btn btn--outline">Let's Connect</a>
+        </div>
       </div>
-      <div class="hero__contacts">
-        <a href="mailto:avnijainmailbox@gmail.com" class="hero__contact-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          avnijainmailbox@gmail.com
-        </a>
-        <a href="tel:+919109706100" class="hero__contact-link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.07 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16z"/></svg>
-          +91 91097 06100
-        </a>
-        <a href="https://linkedin.com/in/avnijain421" target="_blank" rel="noopener" class="hero__contact-link">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          linkedin.com/in/avnijain421
-        </a>
+
+      <div class="hero__media">
+        <div class="hero__photo-frame">
+          <img src="profile.jpg" alt="Avni Jain" class="hero__photo" id="heroPhoto" />
+          <div class="hero__initials" id="heroInitials">AJ</div>
+          <div class="hero__ring"></div>
+          <div class="hero__dot hero__dot--a"></div>
+          <div class="hero__dot hero__dot--b"></div>
+        </div>
+        <div class="hero__badge hero__badge--top">
+          <span class="hero__badge-val">466K+</span>
+          <span class="hero__badge-key">Instagram Growth</span>
+        </div>
+        <div class="hero__badge hero__badge--btm">
+          <span class="hero__badge-val">10×</span>
+          <span class="hero__badge-key">CTR Multiplier</span>
+        </div>
       </div>
     </div>
-    <div class="hero__scroll-hint">
+    <a href="#brands" class="hero__scroll">
       <span>Scroll</span>
       <div class="hero__scroll-line"></div>
-    </div>
+    </a>
   </section>
 
-  <!-- ===== ABOUT / SUMMARY ===== -->
-  <section class="section about" id="about">
+  <!-- ===== BRANDS ===== -->
+  <section class="brands" id="brands">
     <div class="container">
-      <div class="section__label fade-up">Professional Summary</div>
-      <h2 class="section__heading fade-up">Results. Relationships. <em>Real Impact.</em></h2>
-      <div class="about__grid">
-        <div class="about__text fade-up">
-          <p>
-            Results-oriented marketing professional with <strong>3+ years of experience</strong> driving brand growth, influencer partnerships, and integrated marketing campaigns across EdTech and consumer platforms.
-          </p>
-          <p>
-            Extensive experience in campaign planning, cross-functional execution, performance tracking, and stakeholder management. Known for an <strong>ownership mindset</strong>, structured thinking, and the ability to translate brand objectives into scalable and measurable campaigns.
-          </p>
+      <p class="brands__label">Brands I've helped grow</p>
+      <div class="brands__row">
+        <div class="brand brand--gfg">
+          <span class="brand__badge">GFG</span>
+          <span class="brand__name">GeeksforGeeks</span>
         </div>
-        <div class="about__highlights fade-up">
-          <div class="about__highlight-item">
-            <span class="about__highlight-icon">🎯</span>
-            <div>
-              <strong>End-to-End Ownership</strong>
-              <p>From ideation to execution — I own every stage of the campaign lifecycle.</p>
-            </div>
-          </div>
-          <div class="about__highlight-item">
-            <span class="about__highlight-icon">📊</span>
-            <div>
-              <strong>Data-Driven Thinking</strong>
-              <p>Every creative decision is backed by metrics, analytics, and insights.</p>
-            </div>
-          </div>
-          <div class="about__highlight-item">
-            <span class="about__highlight-icon">🤝</span>
-            <div>
-              <strong>Cross-Functional Collaborator</strong>
-              <p>Bridging content, design, product, and external partners seamlessly.</p>
-            </div>
-          </div>
+        <div class="brand-sep"></div>
+        <div class="brand brand--leverage">
+          <span class="brand__badge">LE</span>
+          <span class="brand__name">Leverage Edu</span>
+        </div>
+        <div class="brand-sep"></div>
+        <div class="brand brand--qolomb">
+          <span class="brand__badge">Q</span>
+          <span class="brand__name">Qolomb</span>
+        </div>
+        <div class="brand-sep"></div>
+        <div class="brand brand--euro">
+          <span class="brand__badge">ED</span>
+          <span class="brand__name">Euro Dreams</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===== METRICS ===== -->
-  <section class="section numbers" id="numbers">
-    <div class="numbers__bg"></div>
+  <section class="section metrics-section" id="metrics">
     <div class="container">
-      <div class="section__label fade-up" style="color: var(--accent);">By The Numbers</div>
-      <h2 class="section__heading fade-up" style="color: #fff;">365 Days. Countless Campaigns. <em>Endless Growth.</em></h2>
-      <p class="numbers__subtitle fade-up">A snapshot of what one year at GeeksforGeeks looked like in numbers.</p>
-      <div class="metrics__grid">
-        <div class="metric-card fade-up">
-          <div class="metric-card__icon">📸</div>
-          <div class="metric-card__number">
+      <div class="s-hdr fade-up">
+        <span class="eyebrow">Impact by the numbers</span>
+        <h2 class="s-title">Numbers That<br><em>Define the Work</em></h2>
+      </div>
+      <div class="metrics-grid">
+        <div class="m-card fade-up">
+          <div class="m-card__val">
+            <span class="counter" data-target="3" data-suffix="M+">0</span>
+          </div>
+          <div class="m-card__label">Campaign Impressions</div>
+          <div class="m-card__sub">Across all platforms and campaigns managed</div>
+        </div>
+        <div class="m-card fade-up">
+          <div class="m-card__val">
             <span class="counter" data-target="466" data-suffix="K+">0</span>
           </div>
-          <div class="metric-card__label">Instagram Community Growth</div>
-          <div class="metric-card__sub">New followers added on @geeksforgeeks</div>
+          <div class="m-card__label">Instagram Growth</div>
+          <div class="m-card__sub">Net new community members added at GFG</div>
         </div>
-        <div class="metric-card fade-up">
-          <div class="metric-card__icon">💼</div>
-          <div class="metric-card__number">
+        <div class="m-card fade-up">
+          <div class="m-card__val">
             <span class="counter" data-target="2.5" data-suffix="M" data-decimals="1">0</span>
           </div>
-          <div class="metric-card__label">LinkedIn Milestone Crossed</div>
-          <div class="metric-card__sub">Total followers on LinkedIn</div>
+          <div class="m-card__label">LinkedIn Community</div>
+          <div class="m-card__sub">Milestone crossed on GeeksforGeeks LinkedIn</div>
         </div>
-        <div class="metric-card fade-up">
-          <div class="metric-card__icon">📈</div>
-          <div class="metric-card__number">
-            <span class="counter" data-target="10" data-suffix="x">0</span>
+        <div class="m-card fade-up">
+          <div class="m-card__val">
+            <span class="counter" data-target="10" data-suffix="×">0</span>
           </div>
-          <div class="metric-card__label">CTR Improvement</div>
-          <div class="metric-card__sub">With sharper ad and content strategies</div>
+          <div class="m-card__label">CTR Multiplier</div>
+          <div class="m-card__sub">Click-through rate improvement via sharper strategy</div>
         </div>
-        <div class="metric-card fade-up">
-          <div class="metric-card__icon">🎥</div>
-          <div class="metric-card__number">
-            <span>In-House</span>
-          </div>
-          <div class="metric-card__label">Video Ad Productions</div>
-          <div class="metric-card__sub">Scaled from idea to full production</div>
-        </div>
-        <div class="metric-card fade-up">
-          <div class="metric-card__icon">🤳</div>
-          <div class="metric-card__number">
+        <div class="m-card fade-up">
+          <div class="m-card__val">
             <span class="counter" data-target="12" data-suffix="%+">0</span>
           </div>
-          <div class="metric-card__label">Audience Growth</div>
-          <div class="metric-card__sub">Via influencer campaigns at Leverage Edu</div>
+          <div class="m-card__label">Audience Growth</div>
+          <div class="m-card__sub">Influencer-led growth at Leverage Edu</div>
         </div>
-        <div class="metric-card fade-up">
-          <div class="metric-card__icon">🔔</div>
-          <div class="metric-card__number">
+        <div class="m-card fade-up">
+          <div class="m-card__val">
             <span class="counter" data-target="40" data-suffix="%">0</span>
           </div>
-          <div class="metric-card__label">Brand Recall Increase</div>
-          <div class="metric-card__sub">Delivered at Euro Dreams</div>
+          <div class="m-card__label">Brand Recall Lift</div>
+          <div class="m-card__sub">Achieved at Euro Dreams via multi-channel strategy</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== SKILLS ===== -->
-  <section class="section skills" id="skills">
+  <!-- ===== CASE STUDIES ===== -->
+  <section class="section work-section" id="work">
     <div class="container">
-      <div class="section__label fade-up">Core Competencies</div>
-      <h2 class="section__heading fade-up">What I Bring <em>To The Table</em></h2>
-      <div class="skills__grid">
-        <div class="skill-group fade-up">
-          <h3 class="skill-group__title">
-            <span class="skill-group__icon">🎯</span> Brand &amp; Campaign
-          </h3>
-          <div class="skill-tags">
-            <span class="tag">Brand &amp; Growth Marketing</span>
-            <span class="tag">Integrated Campaign Management</span>
-            <span class="tag">Category &amp; Funnel Thinking</span>
-            <span class="tag">Content &amp; Distribution Strategy</span>
-            <span class="tag">Paid Media Management</span>
+      <div class="s-hdr fade-up">
+        <span class="eyebrow">Selected Work</span>
+        <h2 class="s-title">Case Studies in<br><em>Brand Growth</em></h2>
+      </div>
+
+      <!-- CS 01 -->
+      <article class="cs-card fade-up cs-card--gfg">
+        <div class="cs-card__num">01</div>
+        <div class="cs-card__body">
+          <header class="cs-card__hdr">
+            <div class="cs-card__co">
+              <span class="cs-card__company">GeeksforGeeks</span>
+              <span class="cs-card__sep">·</span>
+              <span class="cs-card__period">Aug 2024 – Present</span>
+            </div>
+            <span class="cs-card__role">Marketing Executive → Senior</span>
+          </header>
+          <h3 class="cs-card__title">Scaling India's #1 Tech Learning Brand Across Social Media</h3>
+          <p class="cs-card__overview">Led the end-to-end social and performance marketing strategy for GeeksforGeeks — growing it into a dominant EdTech social presence. Owned community building, in-house video production, influencer marketing, and multi-channel paid campaigns while becoming part of the brand's own face.</p>
+          <div class="cs-pillars">
+            <div class="cs-pillar">
+              <h4 class="cs-pillar__title">Challenge</h4>
+              <p>Build and sustain high-engagement social communities for a technical EdTech brand, improve paid ad performance, and scale content production capabilities simultaneously across platforms.</p>
+            </div>
+            <div class="cs-pillar">
+              <h4 class="cs-pillar__title">Strategy &amp; Execution</h4>
+              <p>Developed a multi-format content strategy across organic and paid channels. Pioneered in-house video production at scale. Built and managed an end-to-end influencer marketing program — often solo — and became the brand's face in campaigns and in-platform ads.</p>
+            </div>
+          </div>
+          <div class="cs-card__outcomes">
+            <div class="outcome">
+              <span class="outcome__val">466K+</span>
+              <span class="outcome__key">Instagram Growth</span>
+            </div>
+            <div class="outcome">
+              <span class="outcome__val">2.5M</span>
+              <span class="outcome__key">LinkedIn Community</span>
+            </div>
+            <div class="outcome">
+              <span class="outcome__val">10×</span>
+              <span class="outcome__key">CTR Improvement</span>
+            </div>
+            <div class="outcome">
+              <span class="outcome__val">3M+</span>
+              <span class="outcome__key">Campaign Impressions</span>
+            </div>
           </div>
         </div>
-        <div class="skill-group fade-up">
-          <h3 class="skill-group__title">
-            <span class="skill-group__icon">🤝</span> Partnerships &amp; Stakeholders
-          </h3>
-          <div class="skill-tags">
-            <span class="tag">Influencer &amp; Creator Partnerships</span>
-            <span class="tag">Vendor &amp; Stakeholder Management</span>
-            <span class="tag">Market &amp; Consumer Insights</span>
-            <span class="tag">Cross-Functional Execution</span>
+      </article>
+
+      <!-- CS 02 -->
+      <article class="cs-card fade-up cs-card--leverage">
+        <div class="cs-card__num">02</div>
+        <div class="cs-card__body">
+          <header class="cs-card__hdr">
+            <div class="cs-card__co">
+              <span class="cs-card__company">Leverage Edu</span>
+              <span class="cs-card__sep">·</span>
+              <span class="cs-card__period">Sep 2023 – Jul 2024</span>
+            </div>
+            <span class="cs-card__role">Social Media Associate</span>
+          </header>
+          <h3 class="cs-card__title">Influencer-Led Community Growth for a Study Abroad Platform</h3>
+          <p class="cs-card__overview">Built and managed Leverage Edu's creator partnership program from the ground up — driving measurable audience growth through strategic influencer selection, structured content briefing, and continuous performance-led optimisation.</p>
+          <div class="cs-pillars">
+            <div class="cs-pillar">
+              <h4 class="cs-pillar__title">Challenge</h4>
+              <p>Accelerate social audience growth in a competitive EdTech space using influencer and brand campaigns while ensuring content quality and brand alignment across all creator partnerships.</p>
+            </div>
+            <div class="cs-pillar">
+              <h4 class="cs-pillar__title">Strategy &amp; Execution</h4>
+              <p>Identified high-fit creators, developed tailored content briefs, managed the full approval and delivery pipeline, and used engagement analytics to continuously refine the creator mix and optimise campaign formats.</p>
+            </div>
+          </div>
+          <div class="cs-card__outcomes">
+            <div class="outcome">
+              <span class="outcome__val">12%+</span>
+              <span class="outcome__key">Audience Growth</span>
+            </div>
+            <div class="outcome">
+              <span class="outcome__val">↑ Engagement</span>
+              <span class="outcome__key">Optimised Creator Mix</span>
+            </div>
+            <div class="outcome">
+              <span class="outcome__val">E2E</span>
+              <span class="outcome__key">Influencer Pipeline Built</span>
+            </div>
           </div>
         </div>
-        <div class="skill-group fade-up">
-          <h3 class="skill-group__title">
-            <span class="skill-group__icon">📊</span> Analytics &amp; Performance
-          </h3>
-          <div class="skill-tags">
-            <span class="tag">Performance Tracking</span>
-            <span class="tag">Reach &amp; Engagement</span>
-            <span class="tag">CTR &amp; CAC</span>
-            <span class="tag">Advanced Google Analytics</span>
-            <span class="tag">SEO &amp; SEM</span>
+      </article>
+
+      <!-- CS 03 -->
+      <article class="cs-card fade-up cs-card--euro">
+        <div class="cs-card__num">03</div>
+        <div class="cs-card__body">
+          <header class="cs-card__hdr">
+            <div class="cs-card__co">
+              <span class="cs-card__company">Euro Dreams</span>
+              <span class="cs-card__sep">·</span>
+              <span class="cs-card__period">Aug – Oct 2022</span>
+            </div>
+            <span class="cs-card__role">Communication Lead</span>
+          </header>
+          <h3 class="cs-card__title">40% Brand Recall Lift via Multi-Channel Communication</h3>
+          <p class="cs-card__overview">Designed and executed a multi-channel brand communication strategy for Euro Dreams — a study abroad consultancy — achieving a measurable 40% increase in brand recall within a short engagement window through structured messaging experiments and rapid iteration.</p>
+          <div class="cs-pillars">
+            <div class="cs-pillar">
+              <h4 class="cs-pillar__title">Challenge</h4>
+              <p>Build brand awareness and recall in a saturated study abroad market with limited budget and a tight timeline, while maintaining message consistency across all touchpoints.</p>
+            </div>
+            <div class="cs-pillar">
+              <h4 class="cs-pillar__title">Strategy &amp; Execution</h4>
+              <p>Designed cohesive cross-channel messaging, ran structured messaging experiments, and used early performance signals to sharpen the communication approach in real time.</p>
+            </div>
+          </div>
+          <div class="cs-card__outcomes">
+            <div class="outcome">
+              <span class="outcome__val">40%</span>
+              <span class="outcome__key">Brand Recall Increase</span>
+            </div>
+            <div class="outcome">
+              <span class="outcome__val">Multi-Channel</span>
+              <span class="outcome__key">Strategy Designed</span>
+            </div>
           </div>
         </div>
-        <div class="skill-group fade-up">
-          <h3 class="skill-group__title">
-            <span class="skill-group__icon">🛠️</span> Tools &amp; Platforms
-          </h3>
-          <div class="skill-tags">
-            <span class="tag">HubSpot CRM</span>
-            <span class="tag">Google Ads</span>
-            <span class="tag">Social Media Strategy</span>
-            <span class="tag">Meta Ads</span>
-            <span class="tag">LinkedIn</span>
-            <span class="tag">Instagram</span>
-          </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== EXPERTISE ===== -->
+  <section class="section expertise-section" id="expertise">
+    <div class="container">
+      <div class="s-hdr fade-up">
+        <span class="eyebrow">Areas of Excellence</span>
+        <h2 class="s-title">Where I Create<br><em>Measurable Impact</em></h2>
+      </div>
+      <div class="exp-grid">
+        <div class="exp-card fade-up">
+          <span class="exp-card__num">01</span>
+          <h3 class="exp-card__title">Brand &amp; Growth Strategy</h3>
+          <p class="exp-card__desc">Integrated campaign planning, brand positioning, funnel strategy, and multi-channel execution — all aligned to measurable business growth objectives.</p>
+          <ul class="exp-card__tags">
+            <li>Brand Architecture</li>
+            <li>Growth Marketing</li>
+            <li>Funnel Optimisation</li>
+            <li>Campaign Management</li>
+            <li>Paid Media</li>
+          </ul>
+        </div>
+        <div class="exp-card fade-up">
+          <span class="exp-card__num">02</span>
+          <h3 class="exp-card__title">Influencer &amp; Creator Economy</h3>
+          <p class="exp-card__desc">End-to-end influencer program ownership — from creator identification and briefing to performance tracking, scaling partnerships, and building internal talent pipelines.</p>
+          <ul class="exp-card__tags">
+            <li>Influencer Strategy</li>
+            <li>Creator Briefs</li>
+            <li>Partnership Scaling</li>
+            <li>Performance Tracking</li>
+          </ul>
+        </div>
+        <div class="exp-card fade-up">
+          <span class="exp-card__num">03</span>
+          <h3 class="exp-card__title">Performance &amp; Analytics</h3>
+          <p class="exp-card__desc">Data-driven decision making with mastery of key performance metrics — CTR, CAC, reach, and engagement — to continuously improve campaign ROI and demonstrate impact.</p>
+          <ul class="exp-card__tags">
+            <li>Google Analytics</li>
+            <li>CTR &amp; CAC Tracking</li>
+            <li>SEO / SEM</li>
+            <li>HubSpot CRM</li>
+            <li>Google Ads</li>
+          </ul>
+        </div>
+        <div class="exp-card fade-up">
+          <span class="exp-card__num">04</span>
+          <h3 class="exp-card__title">Content Production &amp; Distribution</h3>
+          <p class="exp-card__desc">Creating and scaling content ecosystems — from in-house video productions to cross-platform publishing strategy and paid media amplification that drives real reach.</p>
+          <ul class="exp-card__tags">
+            <li>Video Production</li>
+            <li>Social Content Strategy</li>
+            <li>Distribution Planning</li>
+            <li>Content Calendars</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== EXPERIENCE ===== -->
-  <section class="section experience" id="experience">
+  <!-- ===== ABOUT ===== -->
+  <section class="section about-section" id="about">
     <div class="container">
-      <div class="section__label fade-up">Career Journey</div>
-      <h2 class="section__heading fade-up">Where I've <em>Made My Mark</em></h2>
-      <div class="timeline">
-
-        <div class="timeline__item fade-up">
-          <div class="timeline__dot"></div>
-          <div class="timeline__card">
-            <div class="timeline__header">
-              <div>
-                <h3 class="timeline__role">Marketing Executive</h3>
-                <p class="timeline__company">GeeksforGeeks</p>
-              </div>
-              <div class="timeline__meta">
-                <span class="timeline__date">Aug 2024 – Present</span>
-                <span class="timeline__location">Noida</span>
-                <span class="badge badge--current">Current</span>
+      <div class="about-inner">
+        <div class="about-left fade-up">
+          <div class="about-photo-frame">
+            <img src="profile.jpg" alt="Avni Jain" class="about-photo" />
+            <div class="about-photo-fb">AJ</div>
+          </div>
+          <div class="creds">
+            <div class="cred">
+              <span class="cred__icon">🎓</span>
+              <div class="cred__info">
+                <strong>Integrated M.Sc. Electronic Media</strong>
+                <span>EMRC, DAVV · Indore · 2022</span>
               </div>
             </div>
-            <ul class="timeline__points">
-              <li>Planned and executed multi-channel marketing campaigns aligned with brand and business objectives.</li>
-              <li>Grew Instagram community by <strong>466K+</strong> and helped cross the <strong>2.5M LinkedIn</strong> milestone.</li>
-              <li>Scaled CTRs by <strong>10x</strong> through sharper ad strategies and creative formats.</li>
-              <li>Pioneered in-house video ad productions — now a key pillar of brand storytelling.</li>
-              <li>Led influencer marketing end-to-end, often solo with a small team.</li>
-              <li>Became part of the brand's face across platforms and in-ad appearances.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline__item fade-up">
-          <div class="timeline__dot"></div>
-          <div class="timeline__card">
-            <div class="timeline__header">
-              <div>
-                <h3 class="timeline__role">Social Media Associate</h3>
-                <p class="timeline__company">Leverage Edu</p>
-              </div>
-              <div class="timeline__meta">
-                <span class="timeline__date">Sep 2023 – Jul 2024</span>
-                <span class="timeline__location">Noida</span>
+            <div class="cred">
+              <span class="cred__icon">🏅</span>
+              <div class="cred__info">
+                <strong>Google Digital Marketing</strong>
+                <span>Certified · Google</span>
               </div>
             </div>
-            <ul class="timeline__points">
-              <li>Executed integrated brand and influencer campaigns, contributing to <strong>12%+ audience growth</strong>.</li>
-              <li>Managed influencer coordination including content briefs, approvals, and delivery timelines.</li>
-              <li>Analyzed engagement and traffic trends to optimize content formats and creator partnerships.</li>
-              <li>Collaborated with stakeholders to align campaigns with growth priorities.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline__item fade-up">
-          <div class="timeline__dot"></div>
-          <div class="timeline__card">
-            <div class="timeline__header">
-              <div>
-                <h3 class="timeline__role">Social Media Manager</h3>
-                <p class="timeline__company">Qolomb</p>
-              </div>
-              <div class="timeline__meta">
-                <span class="timeline__date">Oct 2022 – Sep 2023</span>
-                <span class="timeline__location">Indore</span>
+            <div class="cred">
+              <span class="cred__icon">🏅</span>
+              <div class="cred__info">
+                <strong>Google Ads Certification</strong>
+                <span>Certified · Google</span>
               </div>
             </div>
-            <ul class="timeline__points">
-              <li>Developed and expanded the founder's personal brand through structured content strategy and reporting.</li>
-              <li>Owned content planning, publishing cadence, and performance reviews to support brand positioning.</li>
-              <li>Worked cross-functionally to ensure consistent tone and messaging across campaigns.</li>
-            </ul>
           </div>
         </div>
-
-        <div class="timeline__item fade-up">
-          <div class="timeline__dot"></div>
-          <div class="timeline__card">
-            <div class="timeline__header">
-              <div>
-                <h3 class="timeline__role">Communication Lead</h3>
-                <p class="timeline__company">Euro Dreams</p>
-              </div>
-              <div class="timeline__meta">
-                <span class="timeline__date">Aug 2022 – Oct 2022</span>
-                <span class="timeline__location">Indore</span>
-              </div>
-            </div>
-            <ul class="timeline__points">
-              <li>Contributed to multi-channel brand communication strategies, increasing brand recall by <strong>40%</strong> within a short engagement period.</li>
-              <li>Supported messaging experiments and campaign analysis to strengthen brand impact.</li>
-            </ul>
+        <div class="about-right fade-up">
+          <span class="eyebrow">The story behind the strategy</span>
+          <h2 class="s-title" style="margin-bottom:24px;">Marketing Isn't My Job —<br><em>It's How I Think</em></h2>
+          <p class="about-para">I'm a results-oriented marketing strategist with 3+ years of experience translating brand objectives into campaigns that move communities, shift metrics, and build lasting presence across EdTech and consumer platforms.</p>
+          <p class="about-para">At GeeksforGeeks, I didn't just manage social media — I helped build a movement. Growing an Instagram community by 466K, crossing 2.5M on LinkedIn, pioneering in-house video productions, and multiplying CTRs 10× were the outcomes of strategic thinking combined with relentless hands-on execution.</p>
+          <p class="about-para">Now stepping into a senior role, I bring the confidence of someone who has pushed boundaries, hired and built talent, and turned bold ideas into measurable impact — with the hunger for even bigger challenges ahead.</p>
+          <blockquote class="about-quote">
+            "The joy of seeing an idea turn into impact — that's what drives every campaign I build."
+          </blockquote>
+          <div class="about-links">
+            <a href="mailto:avnijmailbox@gmail.com" class="btn btn--gold">Email Me</a>
+            <a href="https://linkedin.com/in/avnijain421" target="_blank" rel="noopener" class="btn btn--outline">LinkedIn ↗</a>
           </div>
         </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== EDUCATION & CERTIFICATIONS ===== -->
-  <section class="section education" id="education">
-    <div class="container">
-      <div class="section__label fade-up">Credentials</div>
-      <h2 class="section__heading fade-up">Education &amp; <em>Certifications</em></h2>
-      <div class="edu__grid">
-
-        <div class="edu__card fade-up">
-          <div class="edu__icon">🎓</div>
-          <div class="edu__content">
-            <h3 class="edu__degree">Integrated M.Sc. Electronic Media</h3>
-            <p class="edu__school">EMRC, DAVV — Indore</p>
-            <span class="edu__year">2018 – 2022</span>
-          </div>
-        </div>
-
-        <div class="edu__card fade-up">
-          <div class="edu__icon">🏅</div>
-          <div class="edu__content">
-            <h3 class="edu__degree">Google Digital Marketing Certification</h3>
-            <p class="edu__school">Google</p>
-            <span class="edu__year badge badge--cert">Certified</span>
-          </div>
-        </div>
-
-        <div class="edu__card fade-up">
-          <div class="edu__icon">🏅</div>
-          <div class="edu__content">
-            <h3 class="edu__degree">Google Ads Certification</h3>
-            <p class="edu__school">Google</p>
-            <span class="edu__year badge badge--cert">Certified</span>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
 
   <!-- ===== CONTACT ===== -->
-  <section class="section contact" id="contact">
-    <div class="contact__bg"></div>
+  <section class="contact-section" id="contact">
+    <div class="contact-section__bg"></div>
     <div class="container">
-      <div class="section__label fade-up" style="color: var(--accent);">Let's Connect</div>
-      <h2 class="section__heading fade-up" style="color: #fff;">Have a Campaign Idea? <em>Let's Talk.</em></h2>
-      <p class="contact__sub fade-up">I'm always open to exciting opportunities, collaborations, and conversations about brand growth.</p>
-      <div class="contact__links fade-up">
-        <a href="mailto:avnijainmailbox@gmail.com" class="contact__card">
-          <div class="contact__card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          </div>
-          <div>
-            <strong>Email Me</strong>
-            <p>avnijainmailbox@gmail.com</p>
-          </div>
-        </a>
-        <a href="tel:+919109706100" class="contact__card">
-          <div class="contact__card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.07 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16z"/></svg>
-          </div>
-          <div>
-            <strong>Call Me</strong>
-            <p>+91 91097 06100</p>
-          </div>
-        </a>
-        <a href="https://linkedin.com/in/avnijain421" target="_blank" rel="noopener" class="contact__card">
-          <div class="contact__card-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          </div>
-          <div>
-            <strong>LinkedIn</strong>
-            <p>linkedin.com/in/avnijain421</p>
-          </div>
-        </a>
+      <div class="contact-content fade-up">
+        <span class="eyebrow" style="color:var(--gold);">Ready to collaborate?</span>
+        <h2 class="contact-title">Let's Build Something<br><em>That Moves the Needle</em></h2>
+        <p class="contact-sub">Whether you're building a brand, launching a campaign, or scaling a marketing function — I'd love to make it happen together.</p>
+        <div class="contact-btns">
+          <a href="mailto:avnijmailbox@gmail.com" class="btn btn--gold btn--lg">Send Me an Email</a>
+          <a href="https://linkedin.com/in/avnijain421" target="_blank" rel="noopener" class="btn btn--outline btn--lg">Connect on LinkedIn</a>
+        </div>
+        <div class="contact-meta">
+          <a href="mailto:avnijmailbox@gmail.com">avnijmailbox@gmail.com</a>
+          <span>·</span>
+          <a href="tel:+919109706100">+91 91097 06100</a>
+          <span>·</span>
+          <a href="https://linkedin.com/in/avnijain421" target="_blank" rel="noopener">linkedin.com/in/avnijain421</a>
+        </div>
       </div>
     </div>
   </section>
@@ -398,8 +430,11 @@
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="container">
-      <p class="footer__copy">© 2025 Avni Jain. Crafted with passion and purpose.</p>
-      <p class="footer__quote">"Ideas turned into impact."</p>
+      <div class="footer-inner">
+        <span class="footer-name">Avni Jain</span>
+        <p class="footer-role">Senior Marketing &amp; Brand Strategist</p>
+        <p class="footer-quote">"Ideas turned into impact."</p>
+      </div>
     </div>
   </footer>
 
