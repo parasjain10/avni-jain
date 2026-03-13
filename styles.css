@@ -1049,3 +1049,232 @@ ul { list-style: none; }
     box-shadow: none;
   }
 }
+
+/* ============================================================
+   PRELOADER
+   ============================================================ */
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 18px;
+  transition: opacity 0.5s var(--ease-out), visibility 0.5s;
+}
+#preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.preloader__logo {
+  font-family: var(--font-h);
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  animation: preloaderPulse 0.9s ease-in-out infinite alternate;
+}
+.preloader__bar {
+  width: 100px;
+  height: 2px;
+  background: var(--surface-2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.preloader__fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--accent), var(--accent-lt));
+  border-radius: 2px;
+  animation: preloaderFill 0.7s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+@keyframes preloaderPulse {
+  0%   { opacity: 0.35; }
+  100% { opacity: 1; }
+}
+@keyframes preloaderFill {
+  0%   { width: 0; }
+  100% { width: 100%; }
+}
+
+/* ============================================================
+   SCROLL PROGRESS BAR
+   ============================================================ */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-lt));
+  z-index: 101;
+  border-radius: 0 2px 2px 0;
+  pointer-events: none;
+  transition: width 0.08s linear;
+}
+
+/* ============================================================
+   HERO STAGGER ENTRANCE
+   ============================================================ */
+html.js [data-ha] {
+  opacity: 0;
+}
+body.page-ready [data-ha] {
+  animation: heroSlideUp 0.7s cubic-bezier(0, 0, 0.2, 1) both;
+  animation-delay: var(--ha-delay, 0.3s);
+}
+body.page-ready [data-ha="5"] {
+  animation-name: heroSlideRight;
+}
+@keyframes heroSlideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes heroSlideRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ============================================================
+   SECTION TITLE ACCENT — animated underline on scroll
+   ============================================================ */
+.section-title .title-accent {
+  position: relative;
+  display: inline;
+}
+.section-title .title-accent::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-lt));
+  border-radius: 2px;
+  transition: width 0.9s cubic-bezier(0.4, 0, 0.2, 1) 0.45s;
+}
+.section-hdr.visible .section-title .title-accent::after {
+  width: 100%;
+}
+
+/* ============================================================
+   NAV — active link indicator
+   ============================================================ */
+.nav__links a:not(.nav__cta) {
+  position: relative;
+}
+.nav__links a:not(.nav__cta)::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s var(--ease-out);
+}
+.nav__links a:not(.nav__cta):hover::after,
+.nav__links a:not(.nav__cta).active::after {
+  width: 100%;
+}
+
+/* ============================================================
+   CS BLOCK & RESULT STAGGER
+   ============================================================ */
+html.js .cs__block {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+}
+html.js .cs__block.anim-in {
+  opacity: 1;
+  transform: none;
+}
+html.js .cs__result {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.45s var(--ease-out), transform 0.45s var(--ease-out);
+}
+html.js .cs__result.anim-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ============================================================
+   ABOUT — credential dot reveal + quote slide-in
+   ============================================================ */
+html.js .cred__dot {
+  transform: scale(0);
+  transition: transform 0.4s var(--ease-spring);
+}
+html.js .cred__dot.anim-in {
+  transform: scale(1);
+}
+html.js .about__quote {
+  opacity: 0;
+  transform: translateX(-14px);
+  transition: opacity 0.6s var(--ease-out) 0.3s, transform 0.6s var(--ease-out) 0.3s;
+}
+html.js .about__text-col.visible .about__quote {
+  opacity: 1;
+  transform: none;
+}
+
+/* ============================================================
+   BUTTON — cursor spotlight glow
+   ============================================================ */
+.btn--primary {
+  position: relative;
+  overflow: hidden;
+}
+.btn--primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--bx, 50%) var(--by, 50%),
+    rgba(255,255,255,0.18) 0%,
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  border-radius: inherit;
+}
+.btn--primary:hover::before {
+  opacity: 1;
+}
+
+/* ============================================================
+   CARD TILT — CSS perspective wrapper (applied via JS)
+   ============================================================ */
+.metric-card,
+.exp-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* ============================================================
+   REDUCED MOTION — respect user preference
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  [data-ha],
+  html.js .cs__block,
+  html.js .cs__result,
+  html.js .cred__dot,
+  html.js .about__quote,
+  .hero__float,
+  .hero__bg,
+  .preloader__fill,
+  .preloader__logo {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  #scroll-progress { display: none; }
+  #preloader { display: none; }
+}
