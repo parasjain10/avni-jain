@@ -1292,3 +1292,306 @@ html.js .about__text-col.visible .about__quote { opacity: 1; transform: none; }
   #scroll-progress { display: none; }
   #preloader { display: none; }
 }
+
+/* ============================================================
+   CUSTOM CURSOR
+   ============================================================ */
+@media (hover: hover) and (pointer: fine) {
+  body, a, button, [role="button"] { cursor: none; }
+}
+
+#cursor-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate3d(-200px,-200px,0) translate(-50%,-50%);
+  will-change: transform;
+  transition: width 0.3s var(--ease-out), height 0.3s var(--ease-out), background 0.3s, opacity 0.3s;
+}
+#cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid rgba(var(--accent-rgb),0.55);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9997;
+  transform: translate3d(-200px,-200px,0) translate(-50%,-50%);
+  will-change: transform;
+  transition: width 0.4s var(--ease-spring), height 0.4s var(--ease-spring), border-color 0.3s, opacity 0.3s;
+}
+/* Hover over interactive elements — ring expands, dot shrinks */
+body.cursor-hover #cursor-dot  { width: 4px; height: 4px; background: var(--accent-lt); }
+body.cursor-hover #cursor-ring { width: 54px; height: 54px; border-color: var(--accent); }
+/* Click pulse */
+body.cursor-click #cursor-ring { width: 28px; height: 28px; border-width: 2px; border-color: var(--accent-dk); }
+/* Hide on touch */
+@media (hover: none), (pointer: coarse) {
+  #cursor-dot, #cursor-ring { display: none; }
+}
+
+/* ============================================================
+   HERO MORPHING ORB
+   ============================================================ */
+.hero__orb {
+  position: absolute;
+  right: 6%;
+  top: 50%;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(
+    ellipse at 40% 45%,
+    rgba(var(--accent-rgb),0.13) 0%,
+    rgba(var(--accent-rgb),0.05) 45%,
+    transparent 72%
+  );
+  border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+  filter: blur(48px);
+  pointer-events: none;
+  z-index: 0;
+  animation: orbMorph 11s ease-in-out infinite alternate,
+             orbFloat 7s ease-in-out infinite alternate;
+}
+@keyframes orbMorph {
+  0%   { border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%; }
+  33%  { border-radius: 40% 60% 30% 70% / 60% 40% 70% 30%; }
+  66%  { border-radius: 70% 30% 50% 50% / 30% 70% 50% 50%; }
+  100% { border-radius: 50% 50% 30% 70% / 40% 60% 70% 30%; }
+}
+@keyframes orbFloat {
+  0%   { transform: translateY(-48%) scale(1); }
+  100% { transform: translateY(-52%) scale(1.06); }
+}
+
+/* ============================================================
+   SKILLS TICKER
+   ============================================================ */
+.hero__ticker {
+  overflow: hidden;
+  background: var(--accent);
+  padding: 11px 0;
+  position: relative;
+}
+/* pause-on-hover via CSS */
+.hero__ticker:hover .hero__ticker-track { animation-play-state: paused; }
+
+.hero__ticker-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  white-space: nowrap;
+  animation: tickerScroll 34s linear infinite;
+}
+.hero__ticker-track > span {
+  font-family: var(--font-b);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.92);
+  white-space: nowrap;
+}
+.hero__ticker-track .t-dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.45);
+  flex-shrink: 0;
+}
+@keyframes tickerScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   METRIC CARD — SHIMMER SWEEP on hover
+   ============================================================ */
+.metric-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 15%,
+    rgba(255,255,255,0.55) 50%,
+    transparent 85%
+  );
+  transform: skewX(-18deg);
+  pointer-events: none;
+  z-index: 1;
+}
+.metric-card:hover::after {
+  animation: shimmerSweep 0.65s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+@keyframes shimmerSweep {
+  from { left: -130%; }
+  to   { left: 150%; }
+}
+
+/* ============================================================
+   EXPERTISE CARD — SHIMMER SWEEP + BULLET STAGGER
+   ============================================================ */
+.exp-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -130%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 15%,
+    rgba(255,255,255,0.45) 50%,
+    transparent 85%
+  );
+  transform: skewX(-18deg);
+  pointer-events: none;
+  z-index: 1;
+}
+.exp-card:hover::before {
+  animation: shimmerSweep 0.65s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+/* Bullet point stagger — starts hidden, JS adds .li-in class */
+html.js .exp-card__list li {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+}
+html.js .exp-card__list li.li-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ============================================================
+   EYEBROW CHIP — WIPE-IN from left on scroll reveal
+   ============================================================ */
+html.js .section-hdr .eyebrow {
+  clip-path: inset(0 100% 0 0 round 20px);
+  transition: clip-path 0.65s var(--ease-out) 0.15s;
+}
+html.js .section-hdr.visible .eyebrow {
+  clip-path: inset(0 0% 0 0 round 20px);
+}
+
+/* ============================================================
+   BRANDS SECTION
+   ============================================================ */
+.brands {
+  padding: 56px 0;
+  background: var(--surface);
+  border-top: 1px solid var(--bdr);
+  border-bottom: 1px solid var(--bdr);
+}
+.brands__hdr {
+  text-align: center;
+  margin-bottom: 36px;
+}
+.brands__row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+.brand-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 52px;
+  opacity: 0.65;
+  transition: opacity 0.35s var(--ease-out), transform 0.35s var(--ease-spring);
+}
+.brand-item:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+.brand-logo {
+  height: 40px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  display: block;
+  filter: grayscale(20%);
+  transition: filter 0.35s;
+}
+.brand-item:hover .brand-logo { filter: none; }
+.brands__divider {
+  width: 1px;
+  height: 44px;
+  background: var(--bdr-2);
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  .brands__row { gap: 8px; }
+  .brand-item  { padding: 12px 28px; }
+  .brands__divider { display: none; }
+  .brand-logo  { height: 32px; }
+}
+
+/* ============================================================
+   CASE STUDY — INLINE COMPANY LOGO
+   ============================================================ */
+.cs__company-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 2px;
+}
+.cs__logo {
+  height: 22px;
+  width: auto;
+  max-width: 110px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+/* PNG logos (like eurodreams.png) get a light bg pill so they read on any surface */
+.cs__logo--png {
+  background: var(--surface-2);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   FOOTER — INSTAGRAM BUTTON ACCENT
+   ============================================================ */
+.btn--insta {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.btn__insta-icon {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+.footer .btn--insta:hover {
+  border-color: #e1306c;
+  color: #e1306c;
+}
+
+/* ============================================================
+   REDUCED MOTION — disable new additions too
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .hero__orb,
+  .hero__ticker-track,
+  .metric-card::after,
+  .exp-card::before {
+    animation: none !important;
+  }
+  #cursor-dot, #cursor-ring { display: none !important; }
+  html.js .section-hdr .eyebrow { clip-path: none !important; transition: none !important; }
+  html.js .exp-card__list li   { opacity: 1 !important; transform: none !important; }
+}

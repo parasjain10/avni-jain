@@ -301,4 +301,106 @@
     });
   });
 
+  /* --------- CUSTOM CURSOR --------- */
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const dot  = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+
+    if (dot && ring) {
+      let mx = -200, my = -200; // start offscreen
+      let rx = -200, ry = -200;
+
+      // Move dot instantly — always accurate
+      document.addEventListener('mousemove', e => {
+        mx = e.clientX;
+        my = e.clientY;
+        dot.style.transform = `translate3d(${mx}px,${my}px,0) translate(-50%,-50%)`;
+      });
+
+      // Ring follows with smooth eased lag
+      (function animateRing() {
+        rx += (mx - rx) * 0.13;
+        ry += (my - ry) * 0.13;
+        ring.style.transform = `translate3d(${rx}px,${ry}px,0) translate(-50%,-50%)`;
+        requestAnimationFrame(animateRing);
+      })();
+
+      // Start hidden — reveal on first mouse move
+      dot.style.opacity = '0';
+      ring.style.opacity = '0';
+      document.addEventListener('mousemove', function revealCursor() {
+        dot.style.opacity  = '';
+        ring.style.opacity = '';
+        document.removeEventListener('mousemove', revealCursor);
+      }, { once: true });
+
+      // Hide when pointer leaves the window
+      document.addEventListener('mouseleave', () => {
+        dot.style.opacity  = '0';
+        ring.style.opacity = '0';
+      });
+      document.addEventListener('mouseenter', () => {
+        dot.style.opacity  = '';
+        ring.style.opacity = '';
+      });
+
+      // Hover state — expands ring, shrinks dot
+      document.querySelectorAll('a, button, .metric-card, .exp-card, .cs, .btn').forEach(el => {
+        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+      });
+
+      // Click state — ring snaps in
+      document.addEventListener('mousedown', () => document.body.classList.add('cursor-click'));
+      document.addEventListener('mouseup',   () => document.body.classList.remove('cursor-click'));
+    }
+  }
+
+  /* --------- CIRCULAR FAVICON via Canvas --------- */
+  (function () {
+    var img = new Image();
+    img.onload = function () {
+      var size = 64;
+      var canvas = document.createElement('canvas');
+      canvas.width  = size;
+      canvas.height = size;
+      var ctx = canvas.getContext('2d');
+
+      // Circular clip
+      ctx.beginPath();
+      ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.clip();
+
+      // Draw photo centred and covering the circle
+      var scale = Math.max(size / img.width, size / img.height);
+      var w = img.width  * scale;
+      var h = img.height * scale;
+      ctx.drawImage(img, (size - w) / 2, (size - h) / 2, w, h);
+
+      // Swap the favicon link
+      var link = document.getElementById('favicon') || document.createElement('link');
+      link.rel  = 'icon';
+      link.type = 'image/png';
+      link.href = canvas.toDataURL('image/png');
+      if (!link.parentNode) document.head.appendChild(link);
+    };
+    img.src = 'avnijain.jpg';
+  }());
+
+  /* --------- EXPERTISE BULLET STAGGER --------- */
+  const expBulletObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const items = e.target.querySelectorAll('.exp-card__list li');
+        items.forEach((li, i) => {
+          setTimeout(() => li.classList.add('li-in'), 380 + i * 85);
+        });
+        expBulletObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.exp-card').forEach(card => expBulletObs.observe(card));
+
 })();

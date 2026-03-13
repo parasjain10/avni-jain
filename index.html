@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Avni Jain — Senior Brand & Growth Strategist</title>
   <meta name="description" content="Senior Brand & Growth Strategist with 3+ years driving 3M+ impressions, 466K+ Instagram growth, outdoor branding, and measurable campaign impact." />
+  <!-- Favicon — JS will replace this with a circular canvas version -->
+  <link rel="icon" id="favicon" type="image/jpeg" href="avnijain.jpg" />
+  <link rel="apple-touch-icon" href="avnijain.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
@@ -23,6 +26,10 @@
   <!-- ===== SCROLL PROGRESS ===== -->
   <div id="scroll-progress" aria-hidden="true"></div>
 
+  <!-- ===== CUSTOM CURSOR ===== -->
+  <div id="cursor-dot"  aria-hidden="true"></div>
+  <div id="cursor-ring" aria-hidden="true"></div>
+
   <!-- ===== NAV ===== -->
   <nav class="nav" id="nav">
     <a href="#home" class="nav__logo">AJ</a>
@@ -40,6 +47,8 @@
   <!-- ===== HERO ===== -->
   <section class="hero" id="home">
     <div class="hero__bg" aria-hidden="true"></div>
+    <!-- morphing orb — soft glowing blob for depth -->
+    <div class="hero__orb" aria-hidden="true"></div>
     <div class="hero__grid-lines" aria-hidden="true">
       <svg width="100%" height="100%" preserveAspectRatio="none">
         <defs>
@@ -114,6 +123,49 @@
           <span class="hero__strip-val">3+</span>
           <span class="hero__strip-key">Years of Impact</span>
         </div>
+      </div>
+    </div>
+    <!-- ===== SKILLS TICKER ===== -->
+    <div class="hero__ticker" aria-hidden="true">
+      <div class="hero__ticker-track">
+        <span>Brand Strategy</span><span class="t-dot"></span>
+        <span>Campaign Execution</span><span class="t-dot"></span>
+        <span>Growth Marketing</span><span class="t-dot"></span>
+        <span>Outdoor Branding</span><span class="t-dot"></span>
+        <span>Video Production</span><span class="t-dot"></span>
+        <span>Influencer Marketing</span><span class="t-dot"></span>
+        <span>Performance Ads</span><span class="t-dot"></span>
+        <span>Content Strategy</span><span class="t-dot"></span>
+        <span>Brand Strategy</span><span class="t-dot"></span>
+        <span>Campaign Execution</span><span class="t-dot"></span>
+        <span>Growth Marketing</span><span class="t-dot"></span>
+        <span>Outdoor Branding</span><span class="t-dot"></span>
+        <span>Video Production</span><span class="t-dot"></span>
+        <span>Influencer Marketing</span><span class="t-dot"></span>
+        <span>Performance Ads</span><span class="t-dot"></span>
+        <span>Content Strategy</span><span class="t-dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BRANDS WORKED WITH ===== -->
+  <section class="brands" id="brands">
+    <div class="container">
+      <div class="brands__hdr fade-up">
+        <span class="eyebrow">Brands I've worked with</span>
+      </div>
+      <div class="brands__row fade-up">
+        <a href="#work" class="brand-item" title="GeeksforGeeks">
+          <img src="gfg.svg" alt="GeeksforGeeks" class="brand-logo" />
+        </a>
+        <div class="brands__divider" aria-hidden="true"></div>
+        <a href="#work" class="brand-item" title="Leverage Edu">
+          <img src="leverageedu.svg" alt="Leverage Edu" class="brand-logo" />
+        </a>
+        <div class="brands__divider" aria-hidden="true"></div>
+        <a href="#work" class="brand-item" title="Euro Dreams">
+          <img src="eurodreams.png" alt="Euro Dreams" class="brand-logo" />
+        </a>
       </div>
     </div>
   </section>
@@ -272,7 +324,10 @@
           <div class="cs__meta">
             <span class="cs__index">01</span>
             <div>
-              <span class="cs__company">GeeksforGeeks</span>
+              <div class="cs__company-row">
+                <img src="gfg.svg" alt="GeeksforGeeks" class="cs__logo" />
+                <span class="cs__company">GeeksforGeeks</span>
+              </div>
               <span class="cs__period">Aug 2024 – Present · Marketing Executive → Senior</span>
             </div>
           </div>
@@ -311,7 +366,10 @@
           <div class="cs__meta">
             <span class="cs__index">02</span>
             <div>
-              <span class="cs__company">Leverage Edu</span>
+              <div class="cs__company-row">
+                <img src="leverageedu.svg" alt="Leverage Edu" class="cs__logo" />
+                <span class="cs__company">Leverage Edu</span>
+              </div>
               <span class="cs__period">Sep 2023 – Jul 2024 · Social Media Associate</span>
             </div>
           </div>
@@ -349,7 +407,10 @@
           <div class="cs__meta">
             <span class="cs__index">03</span>
             <div>
-              <span class="cs__company">Euro Dreams</span>
+              <div class="cs__company-row">
+                <img src="eurodreams.png" alt="Euro Dreams" class="cs__logo cs__logo--png" />
+                <span class="cs__company">Euro Dreams</span>
+              </div>
               <span class="cs__period">Aug – Oct 2022 · Communication Lead</span>
             </div>
           </div>
@@ -440,18 +501,24 @@
           <h2 class="footer__heading">Ready When<br><span class="title-accent">You Are.</span></h2>
           <p class="footer__sub">I'm open to senior marketing roles, consulting projects, and brand collaborations that demand strategic thinking and real execution.</p>
           <div class="footer__actions">
-            <a href="mailto:avnijmailbox@gmail.com" class="btn btn--primary">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=avnijmailbox@gmail.com" target="_blank" rel="noopener" class="btn btn--primary">
               <span>Send Me an Email</span>
               <svg class="btn__arrow" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
             <a href="https://linkedin.com/in/avnijain421" target="_blank" rel="noopener" class="btn btn--ghost">LinkedIn Profile</a>
+            <a href="https://www.instagram.com/socialavni" target="_blank" rel="noopener" class="btn btn--ghost btn--insta">
+              <svg class="btn__insta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
+              <span>Instagram</span>
+            </a>
           </div>
           <div class="footer__links">
-            <a href="mailto:avnijmailbox@gmail.com">avnijmailbox@gmail.com</a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=avnijmailbox@gmail.com" target="_blank" rel="noopener">avnijmailbox@gmail.com</a>
             <span>·</span>
             <a href="tel:+919109706100">+91 91097 06100</a>
             <span>·</span>
-            <a href="https://linkedin.com/in/avnijain421" target="_blank" rel="noopener">linkedin.com/in/avnijain421</a>
+            <a href="https://linkedin.com/in/avnijain421" target="_blank" rel="noopener">LinkedIn</a>
+            <span>·</span>
+            <a href="https://www.instagram.com/socialavni" target="_blank" rel="noopener">@socialavni</a>
           </div>
         </div>
         <div class="footer__bottom">
