@@ -126,33 +126,53 @@
 
   document.querySelectorAll('.fade-up').forEach(el => revealObs.observe(el));
 
-  /* --------- ANIMATED COUNTERS --------- */
+  /* --------- ANIMATED COUNTERS (replay every time in view) --------- */
   function animateCounter(el) {
     const target   = parseFloat(el.dataset.target);
     const suffix   = el.dataset.suffix  || '';
     const decimals = parseInt(el.dataset.decimals || '0', 10);
     const duration = 1800;
-    const start    = performance.now();
 
+    // Cancel any animation already running on this element
+    if (el._rafId) {
+      cancelAnimationFrame(el._rafId);
+      el._rafId = null;
+    }
+
+    const start = performance.now();
     function step(now) {
       const progress = Math.min((now - start) / duration, 1);
       const eased    = 1 - Math.pow(1 - progress, 3);
       const val      = eased * target;
       el.textContent = decimals > 0 ? val.toFixed(decimals) + suffix : Math.round(val) + suffix;
-      if (progress < 1) requestAnimationFrame(step);
-      else el.textContent = (decimals > 0 ? target.toFixed(decimals) : target) + suffix;
+      if (progress < 1) {
+        el._rafId = requestAnimationFrame(step);
+      } else {
+        el.textContent = (decimals > 0 ? target.toFixed(decimals) : target) + suffix;
+        el._rafId = null;
+      }
     }
-    requestAnimationFrame(step);
+    el._rafId = requestAnimationFrame(step);
   }
 
+  // Keep watching — no unobserve, so it fires every time the number enters view.
+  // When it leaves, reset to 0 so the next entry always starts from zero.
   const counterObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         animateCounter(e.target);
-        counterObs.unobserve(e.target);
+      } else {
+        // Cancel any running animation and reset display to 0
+        if (e.target._rafId) {
+          cancelAnimationFrame(e.target._rafId);
+          e.target._rafId = null;
+        }
+        const suffix   = e.target.dataset.suffix  || '';
+        const decimals = parseInt(e.target.dataset.decimals || '0', 10);
+        e.target.textContent = (decimals > 0 ? '0.0' : '0') + suffix;
       }
     });
-  }, { threshold: 0.4 });
+  }, { threshold: 0.5 });
 
   document.querySelectorAll('.counter').forEach(el => counterObs.observe(el));
 
