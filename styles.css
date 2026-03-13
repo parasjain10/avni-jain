@@ -985,15 +985,37 @@ ul { list-style: none; }
 
 .footer__links {
   display: flex;
-  gap: 12px;
+  gap: 6px 4px;
   align-items: center;
-  font-size: 0.82rem;
-  color: rgba(240,237,232,0.38);
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
 }
-.footer__links a:hover { color: var(--accent-lt); }
-.footer__links span { color: rgba(240,237,232,0.22); }
+.footer__link-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.82rem;
+  color: rgba(240,237,232,0.45);
+  padding: 7px 13px;
+  border-radius: 8px;
+  border: 1px solid rgba(240,237,232,0.08);
+  transition: color 0.3s, border-color 0.3s, background 0.3s, transform 0.3s var(--ease-spring);
+  white-space: nowrap;
+}
+.footer__link-item:hover {
+  color: #fff;
+  border-color: rgba(var(--accent-rgb), 0.5);
+  background: rgba(var(--accent-rgb), 0.1);
+  transform: translateY(-2px);
+}
+.footer__link-icon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  opacity: 0.75;
+  transition: opacity 0.3s;
+}
+.footer__link-item:hover .footer__link-icon { opacity: 1; }
 
 .footer__bottom {
   width: 100%;
@@ -1294,46 +1316,87 @@ html.js .about__text-col.visible .about__quote { opacity: 1; transform: none; }
 }
 
 /* ============================================================
-   CUSTOM CURSOR
+   CUSTOM CURSOR  — redesigned for visibility
    ============================================================ */
 @media (hover: hover) and (pointer: fine) {
   body, a, button, [role="button"] { cursor: none; }
 }
 
+/* Inner dot — white with accent glow so it reads on any bg */
 #cursor-dot {
   position: fixed;
   top: 0; left: 0;
-  width: 8px;
-  height: 8px;
-  background: var(--accent);
+  width: 13px;
+  height: 13px;
+  background: #fff;
+  border: 2.5px solid var(--accent);
   border-radius: 50%;
+  box-shadow: 0 0 0 1.5px rgba(var(--accent-rgb),0.25),
+              0 0 14px  rgba(var(--accent-rgb),0.55);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate3d(-200px,-200px,0) translate(-50%,-50%);
+  will-change: transform;
+  transition:
+    width  0.25s var(--ease-spring),
+    height 0.25s var(--ease-spring),
+    background 0.25s,
+    border-color 0.25s,
+    box-shadow 0.25s;
+}
+
+/* Outer ring — solid accent border, clearly visible */
+#cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  width: 44px;
+  height: 44px;
+  border: 2px solid rgba(var(--accent-rgb), 0.75);
+  border-radius: 50%;
+  background: rgba(var(--accent-rgb), 0.04);
   pointer-events: none;
   z-index: 9998;
   transform: translate3d(-200px,-200px,0) translate(-50%,-50%);
   will-change: transform;
-  transition: width 0.3s var(--ease-out), height 0.3s var(--ease-out), background 0.3s, opacity 0.3s;
+  transition:
+    width  0.4s var(--ease-spring),
+    height 0.4s var(--ease-spring),
+    border-color 0.3s,
+    background  0.3s,
+    opacity 0.3s;
 }
-#cursor-ring {
-  position: fixed;
-  top: 0; left: 0;
-  width: 38px;
-  height: 38px;
-  border: 1.5px solid rgba(var(--accent-rgb),0.55);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9997;
-  transform: translate3d(-200px,-200px,0) translate(-50%,-50%);
-  will-change: transform;
-  transition: width 0.4s var(--ease-spring), height 0.4s var(--ease-spring), border-color 0.3s, opacity 0.3s;
+
+/* Hover — dot fills accent, ring grows and glows */
+body.cursor-hover #cursor-dot {
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-color: #fff;
+  box-shadow: 0 0 0 2px var(--accent),
+              0 0 20px rgba(var(--accent-rgb), 0.7);
 }
-/* Hover over interactive elements — ring expands, dot shrinks */
-body.cursor-hover #cursor-dot  { width: 4px; height: 4px; background: var(--accent-lt); }
-body.cursor-hover #cursor-ring { width: 54px; height: 54px; border-color: var(--accent); }
-/* Click pulse */
-body.cursor-click #cursor-ring { width: 28px; height: 28px; border-width: 2px; border-color: var(--accent-dk); }
-/* Hide on touch */
+body.cursor-hover #cursor-ring {
+  width: 56px;
+  height: 56px;
+  border-color: rgba(var(--accent-rgb), 0.9);
+  background: rgba(var(--accent-rgb), 0.07);
+}
+
+/* Click — ring snaps inward sharply */
+body.cursor-click #cursor-dot {
+  transform: translate3d(var(--cx,0), var(--cy,0), 0) translate(-50%,-50%) scale(0.75);
+}
+body.cursor-click #cursor-ring {
+  width: 30px;
+  height: 30px;
+  border-width: 2.5px;
+  border-color: var(--accent);
+  background: rgba(var(--accent-rgb), 0.12);
+}
+
+/* Hide on touch/no-hover devices */
 @media (hover: none), (pointer: coarse) {
-  #cursor-dot, #cursor-ring { display: none; }
+  #cursor-dot, #cursor-ring { display: none !important; }
 }
 
 /* ============================================================
@@ -1579,6 +1642,10 @@ html.js .section-hdr.visible .eyebrow {
 .footer .btn--insta:hover {
   border-color: #e1306c;
   color: #e1306c;
+}
+.footer .btn--linkedin:hover {
+  border-color: #0a66c2;
+  color: #0a66c2;
 }
 
 /* ============================================================

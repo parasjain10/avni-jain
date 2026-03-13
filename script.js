@@ -307,50 +307,56 @@
     const ring = document.getElementById('cursor-ring');
 
     if (dot && ring) {
-      let mx = -200, my = -200; // start offscreen
+      let mx = -200, my = -200;
       let rx = -200, ry = -200;
+      let cursorVisible = false;
 
-      // Move dot instantly — always accurate
+      // Move dot instantly to mouse — no lag
       document.addEventListener('mousemove', e => {
         mx = e.clientX;
         my = e.clientY;
         dot.style.transform = `translate3d(${mx}px,${my}px,0) translate(-50%,-50%)`;
+
+        // Show both elements the first time the mouse moves
+        if (!cursorVisible) {
+          cursorVisible = true;
+          dot.style.opacity  = '1';
+          ring.style.opacity = '1';
+        }
       });
 
-      // Ring follows with smooth eased lag
+      // Ring chases dot with smooth lag via rAF
       (function animateRing() {
-        rx += (mx - rx) * 0.13;
-        ry += (my - ry) * 0.13;
+        rx += (mx - rx) * 0.14;
+        ry += (my - ry) * 0.14;
         ring.style.transform = `translate3d(${rx}px,${ry}px,0) translate(-50%,-50%)`;
         requestAnimationFrame(animateRing);
       })();
 
-      // Start hidden — reveal on first mouse move
-      dot.style.opacity = '0';
+      // Keep both invisible until the mouse is detected on this page
+      dot.style.opacity  = '0';
       ring.style.opacity = '0';
-      document.addEventListener('mousemove', function revealCursor() {
-        dot.style.opacity  = '';
-        ring.style.opacity = '';
-        document.removeEventListener('mousemove', revealCursor);
-      }, { once: true });
 
-      // Hide when pointer leaves the window
+      // Fade out when pointer leaves window, back in when it returns
       document.addEventListener('mouseleave', () => {
         dot.style.opacity  = '0';
         ring.style.opacity = '0';
       });
       document.addEventListener('mouseenter', () => {
-        dot.style.opacity  = '';
-        ring.style.opacity = '';
+        if (cursorVisible) {
+          dot.style.opacity  = '1';
+          ring.style.opacity = '1';
+        }
       });
 
-      // Hover state — expands ring, shrinks dot
-      document.querySelectorAll('a, button, .metric-card, .exp-card, .cs, .btn').forEach(el => {
+      // Hover state on interactive elements
+      const interactable = 'a, button, .metric-card, .exp-card, .cs, .btn, .brand-item';
+      document.querySelectorAll(interactable).forEach(el => {
         el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
         el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
       });
 
-      // Click state — ring snaps in
+      // Click state
       document.addEventListener('mousedown', () => document.body.classList.add('cursor-click'));
       document.addEventListener('mouseup',   () => document.body.classList.remove('cursor-click'));
     }
